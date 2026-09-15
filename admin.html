@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | 3D Contour</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="logo">
+            <h1>3D Contour Admin</h1>
+        </div>
+
+        <div class="header-actions">
+            <button id="logoutButton">Logout</button>
+        </div>
+
+    </header>
+
+
+    <main class="admin-dashboard">
+
+        <section class="admin-dashboard-header">
+
+            <p class="section-label">
+                Store Management
+            </p>
+
+            <h2>
+                Admin Dashboard
+            </h2>
+
+            <p>
+                Manage your 3D Contour products and store content.
+            </p>
+
+        </section>
+
+
+        <section class="admin-dashboard-grid">
+
+            <div class="admin-card">
+
+                <h3>Products</h3>
+
+                <p>
+                    Add, edit, activate or deactivate store products.
+                </p>
+
+                <button id="manageProductsButton">
+                    Manage Products
+                </button>
+
+            </div>
+
+
+            <div class="admin-card">
+
+                <h3>Orders</h3>
+
+                <p>
+                    Customer orders will appear here later.
+                </p>
+
+                <button id="manageOrdersButton">
+    Manage Orders
+</button>
+
+            </div>
+
+
+            <div class="admin-card">
+
+                <h3>Customers</h3>
+
+                <p>
+                    Customer account management will be added later.
+                </p>
+
+                <button disabled>
+                    Coming Soon
+                </button>
+
+            </div>
+
+
+            <div class="admin-card">
+
+    <h3>Custom Requests</h3>
+
+    <p>
+        View and manage customer custom design and
+        3D printing requests.
+    </p>
+
+    <button id="manageCustomRequestsButton">
+        Manage Custom Requests
+    </button>
+
+</div>
+
+        </section>
+
+    </main>
+
+
+    <script
+        type="module"
+        src="admin.js"
+    ></script>
+
+</body>
+
+</html>

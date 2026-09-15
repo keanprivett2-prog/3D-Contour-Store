@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Orders | 3D Contour</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="logo">
+            <h1>3D Contour Admin</h1>
+        </div>
+
+        <div class="header-actions">
+
+            <button id="backToDashboardButton">
+                Dashboard
+            </button>
+
+            <button id="logoutButton">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main class="admin-orders-page">
+
+        <section class="admin-dashboard-header">
+
+            <p class="section-label">
+                Store Management
+            </p>
+
+            <h2>
+                Manage Orders
+            </h2>
+
+            <div class="admin-order-stats">
+
+    <div class="admin-order-stat-card">
+        <span>Total Orders</span>
+        <strong id="statTotalOrders">0</strong>
+    </div>
+
+    <div class="admin-order-stat-card">
+        <span>Pending</span>
+        <strong id="statPendingOrders">0</strong>
+    </div>
+
+    <div class="admin-order-stat-card">
+        <span>Processing</span>
+        <strong id="statProcessingOrders">0</strong>
+    </div>
+
+    <div class="admin-order-stat-card">
+        <span>Completed</span>
+        <strong id="statCompletedOrders">0</strong>
+    </div>
+
+    <div class="admin-order-stat-card">
+        <span>Cancelled</span>
+        <strong id="statCancelledOrders">0</strong>
+    </div>
+
+    <div class="admin-order-stat-card">
+        <span>Total Revenue</span>
+        <strong id="statTotalRevenue">R0.00</strong>
+    </div>
+
+</div>
+
+            <p>
+                View and manage customer orders placed through the store.
+            </p>
+
+        </section>
+
+
+        <section class="admin-orders-card">
+
+            <div class="admin-orders-heading">
+
+                <div>
+
+                    <h3>
+                        Orders
+                    </h3>
+
+                    <p id="adminOrderCount">
+                        Loading orders...
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="admin-order-search">
+
+    <input
+        type="search"
+        id="adminOrderSearch"
+        placeholder="Search by customer, email, phone or order number..."
+    >
+
+</div>
+
+            <div class="admin-order-filters">
+
+    <button
+        type="button"
+        class="admin-order-filter active"
+        data-status="All"
+    >
+        All Orders
+    </button>
+
+    <button
+        type="button"
+        class="admin-order-filter"
+        data-status="Pending"
+    >
+        Pending
+    </button>
+
+    <button
+        type="button"
+        class="admin-order-filter"
+        data-status="Processing"
+    >
+        Processing
+    </button>
+
+    <button
+        type="button"
+        class="admin-order-filter"
+        data-status="Ready for Collection"
+    >
+        Ready for Collection
+    </button>
+
+    <button
+        type="button"
+        class="admin-order-filter"
+        data-status="Completed"
+    >
+        Completed
+    </button>
+
+    <button
+        type="button"
+        class="admin-order-filter"
+        data-status="Cancelled"
+    >
+        Cancelled
+    </button>
+
+</div>
+
+
+            <div id="adminOrdersList">
+
+                <p>
+                    Loading orders...
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script
+        type="module"
+        src="admin-orders.js"
+    ></script>
+
+</body>
+
+</html>

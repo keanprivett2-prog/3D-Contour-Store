@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Details | 3D Contour</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="logo">
+            <h1>3D Contour Admin</h1>
+        </div>
+
+        <div class="header-actions">
+
+            <button id="backToOrdersButton">
+                Orders
+            </button>
+
+            <button id="logoutButton">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main class="admin-order-details-page">
+
+        <section class="admin-dashboard-header">
+
+            <p class="section-label">
+                Store Management
+            </p>
+
+            <h2>
+                Order Details
+            </h2>
+
+            <p id="orderDetailsSubtitle">
+                Loading order...
+            </p>
+
+        </section>
+
+        
+<div class="admin-order-print-actions">
+
+    <button
+        type="button"
+        id="printInvoiceButton"
+        class="admin-order-print-button"
+    >
+        Print Invoice
+    </button>
+
+    
+</div>
+
+        <section
+            class="admin-order-details-card"
+            id="adminOrderDetails"
+        >
+
+            <p>
+                Loading order details...
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- =====================================
+     Product Image Lightbox
+===================================== -->
+
+<div
+    class="image-lightbox"
+    id="imageLightbox"
+    hidden
+>
+
+    <button
+        type="button"
+        class="image-lightbox-close"
+        id="imageLightboxClose"
+        aria-label="Close image"
+    >
+        ×
+    </button>
+
+    <img
+        id="imageLightboxImage"
+        class="image-lightbox-image"
+        alt="Enlarged product image"
+    >
+
+</div>
+
+
+    <script
+        type="module"
+        src="admin-order-details.js"
+    ></script>
+
+</body>
+
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop | 3D Contour</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="logo">
+            <h1>3D Contour</h1>
+        </div>
+
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="shop.html" class="active">Shop</a>
+            <a href="#">Custom Printing</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button id="accountButton">Account</button>
+            <button id="cartButton">Cart (0)</button>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="shop-hero">
+
+            <p class="section-label">3D Contour Store</p>
+
+            <h2>
+                Shop Our Products
+            </h2>
+
+            <p>
+                Browse cake toppers, cookie cutters, stencils,
+                cake tools and other 3D printed products.
+            </p>
+
+        </section>
+
+
+        <section class="shop-section">
+
+            <div class="shop-toolbar">
+
+                <div>
+                    <h2>Products</h2>
+
+                    <p id="productCount">
+                        6 products
+                    </p>
+                </div>
+
+
+                <div class="shop-filters">
+
+                    <input
+                        type="text"
+                        id="productSearch"
+                        placeholder="Search products..."
+                    >
+
+                    <select id="categoryFilter">
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                        <option value="cake-toppers">
+                            Cake Toppers
+                        </option>
+
+                        <option value="cookie-cutters">
+                            Cookie Cutters
+                        </option>
+
+                        <option value="stencils">
+                            Stencils
+                        </option>
+
+                        <option value="cake-tools">
+                            Cake Tools
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-grid" id="productGrid">
+
+
+                <article
+                    class="product-card"
+                    data-name="Happy Birthday Cake Topper"
+                    data-category="cake-toppers"
+                >
+
+                    <div class="product-image-placeholder">
+                        Product Image
+                    </div>
+
+                    <div class="product-card-content">
+
+                        <p class="product-category">
+                            Cake Toppers
+                        </p>
+
+                        <h3>
+                            Happy Birthday Cake Topper
+                        </h3>
+
+                        <p class="product-price">
+                            R85.00
+                        </p>
+
+                        <button
+                            class="add-to-cart-button"
+                            data-product="Happy Birthday Cake Topper"
+                        >
+                            Add To Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="product-card"
+                    data-name="Custom Name Cake Topper"
+                    data-category="cake-toppers"
+                >
+
+                    <div class="product-image-placeholder">
+                        Product Image
+                    </div>
+
+                    <div class="product-card-content">
+
+                        <p class="product-category">
+                            Cake Toppers
+                        </p>
+
+                        <h3>
+                            Custom Name Cake Topper
+                        </h3>
+
+                        <p class="product-price">
+                            R120.00
+                        </p>
+
+                        <button
+                            class="add-to-cart-button"
+                            data-product="Custom Name Cake Topper"
+                        >
+                            Add To Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="product-card"
+                    data-name="Round Cookie Cutter"
+                    data-category="cookie-cutters"
+                >
+
+                    <div class="product-image-placeholder">
+                        Product Image
+                    </div>
+
+                    <div class="product-card-content">
+
+                        <p class="product-category">
+                            Cookie Cutters
+                        </p>
+
+                        <h3>
+                            Round Cookie Cutter
+                        </h3>
+
+                        <p class="product-price">
+                            R45.00
+                        </p>
+
+                        <button
+                            class="add-to-cart-button"
+                            data-product="Round Cookie Cutter"
+                        >
+                            Add To Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="product-card"
+                    data-name="Personalised Cookie Cutter"
+                    data-category="cookie-cutters"
+                >
+
+                    <div class="product-image-placeholder">
+                        Product Image
+                    </div>
+
+                    <div class="product-card-content">
+
+                        <p class="product-category">
+                            Cookie Cutters
+                        </p>
+
+                        <h3>
+                            Personalised Cookie Cutter
+                        </h3>
+
+                        <p class="product-price">
+                            R75.00
+                        </p>
+
+                        <button
+                            class="add-to-cart-button"
+                            data-product="Personalised Cookie Cutter"
+                        >
+                            Add To Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="product-card"
+                    data-name="Happy Birthday Stencil"
+                    data-category="stencils"
+                >
+
+                    <div class="product-image-placeholder">
+                        Product Image
+                    </div>
+
+                    <div class="product-card-content">
+
+                        <p class="product-category">
+                            Stencils
+                        </p>
+
+                        <h3>
+                            Happy Birthday Stencil
+                        </h3>
+
+                        <p class="product-price">
+                            R55.00
+                        </p>
+
+                        <button
+                            class="add-to-cart-button"
+                            data-product="Happy Birthday Stencil"
+                        >
+                            Add To Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="product-card"
+                    data-name="Cake Scraper"
+                    data-category="cake-tools"
+                >
+
+                    <div class="product-image-placeholder">
+                        Product Image
+                    </div>
+
+                    <div class="product-card-content">
+
+                        <p class="product-category">
+                            Cake Tools
+                        </p>
+
+                        <h3>
+                            Cake Scraper
+                        </h3>
+
+                        <p class="product-price">
+                            R60.00
+                        </p>
+
+                        <button
+                            class="add-to-cart-button"
+                            data-product="Cake Scraper"
+                        >
+                            Add To Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div>
+            <h3>3D Contour</h3>
+
+            <p>
+                Custom 3D printing and cake decorating products.
+            </p>
+        </div>
+
+        <p>
+            &copy; <span id="currentYear"></span> 3D Contour.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script type="module" src="shop.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Custom Requests | 3D Contour Admin</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="logo">
+            <h1>3D Contour Admin</h1>
+        </div>
+
+        <div class="header-actions">
+
+            <button id="dashboardButton">
+                Dashboard
+            </button>
+
+            <button id="logoutButton">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main class="admin-dashboard">
+
+        <section class="admin-dashboard-header">
+
+            <p class="section-label">
+                Customer Requests
+            </p>
+
+            <h2>
+                Custom Design Requests
+            </h2>
+
+            <p>
+                View and manage customer inspiration images,
+                custom design instructions and request statuses.
+            </p>
+
+        </section>
+
+        <section class="custom-request-stats">
+
+    <div class="custom-request-stat-card">
+
+        <span>Total Requests</span>
+
+        <strong id="statTotalRequests">
+            0
+        </strong>
+
+    </div>
+
+    <div class="custom-request-stat-card">
+
+        <span>New</span>
+
+        <strong id="statNewRequests">
+            0
+        </strong>
+
+    </div>
+
+    <div class="custom-request-stat-card">
+
+        <span>Reviewing</span>
+
+        <strong id="statReviewingRequests">
+            0
+        </strong>
+
+    </div>
+
+    <div class="custom-request-stat-card">
+
+        <span>Quoted</span>
+
+        <strong id="statQuotedRequests">
+            0
+        </strong>
+
+    </div>
+
+    <div class="custom-request-stat-card">
+
+        <span>In Progress</span>
+
+        <strong id="statInProgressRequests">
+            0
+        </strong>
+
+    </div>
+
+    <div class="custom-request-stat-card">
+
+        <span>Completed</span>
+
+        <strong id="statCompletedRequests">
+            0
+        </strong>
+
+    </div>
+
+</section>
+
+
+        <section class="custom-request-admin-toolbar">
+
+            <div class="custom-request-search">
+
+                <input
+                    type="text"
+                    id="customRequestSearch"
+                    placeholder="Search customer, email or product type..."
+                >
+
+            </div>
+
+
+            <div class="custom-request-filter">
+
+                <select id="customRequestStatusFilter">
+
+                    <option value="all">
+                        All Statuses
+                    </option>
+
+                    <option value="New">
+                        New
+                    </option>
+
+                    <option value="Reviewing">
+                        Reviewing
+                    </option>
+
+                    <option value="Quoted">
+                        Quoted
+                    </option>
+
+                    <option value="Approved">
+                        Approved
+                    </option>
+
+                    <option value="In Progress">
+                        In Progress
+                    </option>
+
+                    <option value="Completed">
+                        Completed
+                    </option>
+
+                    <option value="Cancelled">
+                        Cancelled
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <section
+            class="custom-request-admin-grid"
+            id="customRequestAdminGrid"
+        >
+
+            <p id="customRequestLoading">
+                Loading custom requests...
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script
+        type="module"
+        src="admin-custom-requests.js"
+    ></script>
+
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Products | 3D Contour</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="logo">
+            <h1>3D Contour Admin</h1>
+        </div>
+
+        <div class="header-actions">
+            <button id="backToDashboardButton">
+                Dashboard
+            </button>
+
+            <button id="logoutButton">
+                Logout
+            </button>
+        </div>
+
+    </header>
+
+
+    <main class="admin-products-page">
+
+        <section class="admin-dashboard-header">
+
+            <p class="section-label">
+                Store Management
+            </p>
+
+            <h2>
+                Manage Products
+            </h2>
+
+            <p>
+                Add new products and manage existing store products.
+            </p>
+
+        </section>
+
+
+        <section class="product-management-layout">
+
+            <div class="admin-product-form-card">
+
+                <h3>
+                    Add Product
+                </h3>
+
+                <div class="admin-product-image-section">
+
+    <label>
+        Product Image
+    </label>
+
+    <div
+        class="admin-product-image-upload"
+        id="productImageUpload"
+    >
+
+        <img
+            id="productImagePreview"
+            alt="Product image preview"
+            hidden
+        >
+
+        <div id="productImagePlaceholder">
+
+            <strong>
+                Click to add product image
+            </strong>
+
+            <span>
+                JPG, PNG or WebP
+            </span>
+
+        </div>
+
+    </div>
+
+    <input
+        type="file"
+        id="productImageInput"
+        accept="image/jpeg,image/png,image/webp"
+        hidden
+    >
+
+</div>
+
+                <label for="productName">
+                    Product Name
+                </label>
+
+                <input
+                    type="text"
+                    id="productName"
+                    placeholder="Example: Custom Cake Topper"
+                >
+
+                <label for="productDescription">
+    Description
+</label>
+
+<textarea
+    id="productDescription"
+    placeholder="Enter a short product description"
+    rows="4"
+></textarea>
+
+
+                <label for="productCategory">
+                    Category
+                </label>
+
+                <select id="productCategory">
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    <option value="cake-toppers">
+                        Cake Toppers
+                    </option>
+
+                    <option value="cookie-cutters">
+                        Cookie Cutters
+                    </option>
+
+                    <option value="stencils">
+                        Stencils
+                    </option>
+
+                    <option value="cake-tools">
+                        Cake Tools
+                    </option>
+
+                    <option value="other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <label for="productPrice">
+                    Price
+                </label>
+
+                <input
+                    type="number"
+                    id="productPrice"
+                    placeholder="85.00"
+                    min="0"
+                    step="0.01"
+                >
+
+
+                <label class="admin-checkbox-label">
+
+                    <input
+                        type="checkbox"
+                        id="productActive"
+                        checked
+                    >
+
+                    Active Product
+
+                </label>
+
+
+                <button id="saveProductButton">
+                    Add Product
+                </button>
+
+
+                <p id="productFormMessage"></p>
+
+            </div>
+
+
+            <div class="admin-products-list-card">
+
+                <div class="admin-products-list-heading">
+
+                    <div>
+                        <h3>
+                            Products
+                        </h3>
+
+                        <p id="adminProductCount">
+                            Loading products...
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div id="adminProductsList">
+
+                    <!-- Products inserted here -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script
+        type="module"
+        src="admin-products.js"
+    ></script>
+
+</body>
+
+</html>

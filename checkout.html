@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Checkout | 3D Contour</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="logo">
+            <a href="index.html">
+                3D Contour
+            </a>
+        </div>
+
+        <nav class="main-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="shop.html">
+                Shop
+            </a>
+
+            <a href="#">
+                Custom Printing
+            </a>
+
+            <a href="#">
+                About
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button id="accountButton">
+                Account
+            </button>
+
+            <button id="cartButton">
+                Cart
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main class="checkout-page">
+
+        <h1>
+            Checkout
+        </h1>
+
+        <div class="checkout-layout">
+
+            <section class="checkout-form-section">
+
+                <h2>
+                    Customer Details
+                </h2>
+
+                <form id="checkoutForm">
+
+                    <label for="customerName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        required
+                    >
+
+                    <label for="customerEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="customerEmail"
+                        required
+                    >
+
+                    <label for="customerPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        required
+                    >
+
+                    <fieldset class="delivery-method-section">
+
+    <legend>
+        Delivery Method
+    </legend>
+
+    <label class="delivery-option">
+
+        <input
+            type="radio"
+            name="deliveryMethod"
+            value="collection"
+            checked
+        >
+
+        Collection
+
+    </label>
+
+    <label class="delivery-option">
+
+        <input
+            type="radio"
+            name="deliveryMethod"
+            value="delivery"
+        >
+
+        Delivery
+
+    </label>
+
+</fieldset>
+
+<div
+    class="delivery-address-section"
+    id="deliveryAddressSection"
+    hidden
+>
+
+    <h3>
+        Delivery Address
+    </h3>
+
+    <label for="streetAddress">
+        Street Address
+    </label>
+
+    <input
+        type="text"
+        id="streetAddress"
+    >
+
+    <label for="suburb">
+        Suburb
+    </label>
+
+    <input
+        type="text"
+        id="suburb"
+    >
+
+    <label for="city">
+        City
+    </label>
+
+    <input
+        type="text"
+        id="city"
+    >
+
+    <label for="province">
+        Province
+    </label>
+
+    <select id="province">
+
+        <option value="">
+            Select Province
+        </option>
+
+        <option value="Eastern Cape">
+            Eastern Cape
+        </option>
+
+        <option value="Free State">
+            Free State
+        </option>
+
+        <option value="Gauteng">
+            Gauteng
+        </option>
+
+        <option value="KwaZulu-Natal">
+            KwaZulu-Natal
+        </option>
+
+        <option value="Limpopo">
+            Limpopo
+        </option>
+
+        <option value="Mpumalanga">
+            Mpumalanga
+        </option>
+
+        <option value="Northern Cape">
+            Northern Cape
+        </option>
+
+        <option value="North West">
+            North West
+        </option>
+
+        <option value="Western Cape">
+            Western Cape
+        </option>
+
+    </select>
+
+    <label for="postalCode">
+        Postal Code
+    </label>
+
+    <input
+        type="text"
+        id="postalCode"
+    >
+
+</div>
+
+<button
+    type="submit"
+    id="placeOrderButton"
+    class="checkout-submit-button"
+
+    <fieldset class="payment-method-section">
+
+    <legend>
+        Payment Method
+    </legend>
+
+    <label class="payment-option">
+
+        <input
+            type="radio"
+            name="paymentMethod"
+            value="payfast"
+            checked
+        >
+
+        Pay securely with Payfast
+
+    </label>
+
+</fieldset>
+>
+
+    Continue
+</button>
+
+                </form>
+
+            </section>
+
+
+            <section class="checkout-summary-section">
+
+                <h2>
+                    Order Summary
+                </h2>
+
+                <div id="checkoutOrderSummary">
+
+                    <p>
+                        Loading your cart...
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            &copy;
+            <span id="currentYear"></span>
+            3D Contour. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script
+    type="module"
+    src="checkout.js"
+></script>
+
+</body>
+
+</html>
