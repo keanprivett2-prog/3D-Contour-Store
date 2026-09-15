@@ -1,640 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>3D Contour | Custom 3D Printing</title>
+    <title>3D Contour | Printing Something Awesome...</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+            background:
+                radial-gradient(circle at top left, #3b3b3b 0%, transparent 35%),
+                linear-gradient(135deg, #111111, #1d1d1d);
+            color: white;
+            text-align: center;
+        }
+
+        .coming-soon {
+            width: 100%;
+            max-width: 750px;
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+            color: #ff8a00;
+        }
+
+        .printer-icon {
+            font-size: 70px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #ff8a00;
+        }
+
+        .lead {
+            font-size: 21px;
+            line-height: 1.7;
+            color: #d4d4d4;
+            max-width: 620px;
+            margin: 0 auto 30px;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50px;
+            background: rgba(255,255,255,0.06);
+            margin-bottom: 35px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #ff8a00;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255,138,0,0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(255,138,0,0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255,138,0,0);
+            }
+        }
+
+        .small-text {
+            color: #888;
+            font-size: 14px;
+            margin-top: 35px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+
+            .lead {
+                font-size: 17px;
+            }
+
+            .printer-icon {
+                font-size: 55px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header class="site-header">
+    <main class="coming-soon">
 
-    <div class="top-bar">
-
-        <div class="top-bar-left">
-            <span>Custom 3D Printing • Made in South Africa</span>
+        <div class="brand">
+            3D CONTOUR
         </div>
 
-        <div class="top-bar-right">
-            <a href="#">FAQ</a>
-            <a href="#">About Us</a>
-            <a href="#">Contact</a>
+        <div class="printer-icon">
+            🖨️
         </div>
 
-    </div>
+        <h1>
+            We're currently<br>
+            <span>printing something awesome.</span>
+        </h1>
 
-
-    <div class="main-header">
-
-        <div class="logo">
-            <a href="index.html">
-                3D Contour
-            </a>
-        </div>
-
-
-        <nav class="main-nav">
-
-            <a href="index.html" class="active">
-                Home
-            </a>
-
-            <a href="shop.html">
-                Shop
-            </a>
-
-            <a href="#">
-                Cake Toppers
-            </a>
-
-            <a href="#">
-                Cookie Cutters
-            </a>
-
-            <a href="#">
-                Stencils
-            </a>
-
-            <a href="#">
-                Custom Printing
-            </a>
-
-        </nav>
-
-
-        <div class="header-actions">
-
-            <button
-                id="accountButton"
-                class="icon-button"
-                aria-label="Account"
-            >
-                ♙
-            </button>
-
-            <button
-                id="cartButton"
-                class="cart-button"
-            >
-                Cart (0)
-            </button>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-    <main>
-
-        <section class="hero">
-
-    <div class="hero-content">
-
-        <span class="hero-badge">
-            Creative 3D Printing Made Easy
-        </span>
-
-        <h2>
-            Turn Your Ideas Into
-            <span>Something Amazing</span>
-        </h2>
-
-        <p>
-            Discover custom cake toppers, cookie cutters,
-            stencils, cake tools and personalised 3D printed
-            products made to bring your ideas to life.
+        <p class="lead">
+            Our printer is warmed up, the filament is loaded,
+            and a brand-new 3D Contour online store is taking shape
+            layer by layer.
         </p>
 
-        <div class="hero-buttons">
-
-            <a
-                href="shop.html"
-                class="primary-button"
-            >
-                Shop Products
-            </a>
-
-            <a
-                href="#"
-                class="secondary-button"
-            >
-                Request Custom Print
-            </a>
-
+        <div class="status">
+            <span class="status-dot"></span>
+            Website print in progress...
         </div>
-
-        <div class="hero-features">
-
-            <span>✓ Custom Designs</span>
-
-            <span>✓ Made in South Africa</span>
-
-            <span>✓ Perfect for Bakers & Creators</span>
-
-        </div>
-
-    </div>
-
-
-    <div class="hero-visual">
-
-        <div class="hero-shape hero-shape-one"></div>
-
-        <div class="hero-shape hero-shape-two"></div>
-
-        <div class="hero-product-card">
-
-            <span class="hero-product-icon">
-                ✦
-            </span>
-
-            <h3>
-                Your Idea.
-                <br>
-                Our Print.
-            </h3>
-
-            <p>
-                Designed and printed
-                just for you.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-        <section class="categories">
-
-    <div class="section-heading">
-
-        <span class="section-badge">
-            Made For Creators
-        </span>
-
-        <h2>
-            Find Your Favourite
-        </h2>
 
         <p>
-            Explore our most popular 3D printed products,
-            made for bakers, decorators and creative minds.
+            We'll be back online soon with custom 3D printing,
+            cake toppers, cookie cutters, stencils and much more.
         </p>
 
-    </div>
-
-
-    <div class="category-grid">
-
-        <a
-            href="shop.html"
-            class="category-card category-orange"
-        >
-            <span class="category-number">
-                01
-            </span>
-
-            <div class="category-card-content">
-
-                <span class="category-icon">
-                    🎂
-                </span>
-
-                <h3>
-                    Cake Toppers
-                </h3>
-
-                <p>
-                    Personalised designs for birthdays,
-                    weddings and every celebration.
-                </p>
-
-                <span class="category-link">
-                    Shop Toppers →
-                </span>
-
-            </div>
-
-        </a>
-
-
-        <a
-            href="shop.html"
-            class="category-card category-yellow"
-        >
-            <span class="category-number">
-                02
-            </span>
-
-            <div class="category-card-content">
-
-                <span class="category-icon">
-                    ★
-                </span>
-
-                <h3>
-                    Cookie Cutters
-                </h3>
-
-                <p>
-                    Fun and custom cutters made for
-                    bakers and decorators.
-                </p>
-
-                <span class="category-link">
-                    Shop Cutters →
-                </span>
-
-            </div>
-
-        </a>
-
-
-        <a
-            href="shop.html"
-            class="category-card category-teal"
-        >
-            <span class="category-number">
-                03
-            </span>
-
-            <div class="category-card-content">
-
-                <span class="category-icon">
-                    ✦
-                </span>
-
-                <h3>
-                    Stencils
-                </h3>
-
-                <p>
-                    Creative cake, cookie and craft
-                    stencils for beautifully clean results.
-                </p>
-
-                <span class="category-link">
-                    Shop Stencils →
-                </span>
-
-            </div>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="category-card category-purple"
-        >
-            <span class="category-number">
-                04
-            </span>
-
-            <div class="category-card-content">
-
-                <span class="category-icon">
-                    ✚
-                </span>
-
-                <h3>
-                    Custom Printing
-                </h3>
-
-                <p>
-                    Got an idea or STL file?
-                    Let us turn it into something real.
-                </p>
-
-                <span class="category-link">
-                    Start Your Project →
-                </span>
-
-            </div>
-
-        </a>
-
-    </div>
-
-</section>
-
-
-        <section class="custom-print-section">
-
-    <div class="custom-print-wrapper">
-
-        <div class="custom-print-content">
-
-            <span class="section-badge">
-                Made Just For You
-            </span>
-
-            <h2>
-                Got An Idea?
-                <span>Let’s Print It.</span>
-            </h2>
-
-            <p>
-                Upload your own STL file or tell us what you need.
-                We’ll help turn your idea into a custom 3D printed product.
-            </p>
-
-            <div class="custom-print-features">
-
-                <span>✓ Custom Designs</span>
-                <span>✓ Small & Large Orders</span>
-                <span>✓ Personalised Products</span>
-
-            </div>
-
-            <a
-    href="#custom-request"
-    class="primary-button"
->
-    Start A Custom Order
-</a>
-
-        </div>
-
-
-        <div class="custom-print-visual">
-
-            <div class="custom-visual-card">
-
-                <span class="custom-visual-icon">
-                    3D
-                </span>
-
-                <h3>
-                    Your Design
-                    <br>
-                    Made Real
-                </h3>
-
-                <p>
-                    From idea to finished print.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section
-    class="custom-request-section"
-    id="custom-request"
->
-
-    <div class="custom-request-wrapper">
-
-        <div class="custom-request-heading">
-
-            <span class="section-badge">
-                Custom Design Request
-            </span>
-
-            <h2>
-                Show Us What You Have In Mind
-            </h2>
-
-            <p>
-                Upload an inspiration image and tell us exactly
-                what you would like changed or created.
-            </p>
-
-        </div>
-
-
-        <form
-            class="custom-request-form"
-            id="customRequestForm"
-        >
-
-            <div class="form-grid">
-
-                <div class="form-group">
-
-                    <label for="requestName">
-                        Your Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="requestName"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="requestEmail">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="requestEmail"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="requestPhone">
-                        Phone Number
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="requestPhone"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="requestProductType">
-                        What Would You Like Made?
-                    </label>
-
-                    <select
-                        id="requestProductType"
-                        required
-                    >
-
-                        <option value="">
-                            Select a product
-                        </option>
-
-                        <option value="Cake Topper">
-                            Cake Topper
-                        </option>
-
-                        <option value="Cookie Cutter">
-                            Cookie Cutter
-                        </option>
-
-                        <option value="Stencil">
-                            Stencil
-                        </option>
-
-                        <option value="Cake Tool">
-                            Cake Tool
-                        </option>
-
-                        <option value="Other">
-                            Other
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="requestSize">
-                        Approximate Size
-                    </label>
-
-                    <input
-                        type="text"
-                        id="requestSize"
-                        placeholder="Example: 15 cm wide"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="requestQuantity">
-                        Quantity
-                    </label>
-
-                    <input
-                        type="number"
-                        id="requestQuantity"
-                        min="1"
-                        value="1"
-                    >
-
-                </div>
-
-            </div>
-
-
-            <div class="form-group full-width">
-
-                <label for="requestImage">
-                    Upload Inspiration Image
-                </label>
-
-                <input
-                    type="file"
-                    id="requestImage"
-                    accept="image/*"
-                    required
-                >
-
-                <small>
-                    Upload a photo, screenshot or example
-                    of the style you would like us to work from.
-                </small>
-
-            </div>
-
-
-            <div class="form-group full-width">
-
-                <label for="requestInstructions">
-                    Tell Us What You Want
-                </label>
-
-                <textarea
-                    id="requestInstructions"
-                    rows="7"
-                    required
-                    placeholder="Example: Please use the same style as the image, but change the wording to 'Happy 30th Sarah'. The letters must all be joined because I need it as a cake topper."
-                ></textarea>
-
-            </div>
-
-
-            <div class="custom-request-tip">
-
-                <strong>
-                    The more detail you give us, the better.
-                </strong>
-
-                <p>
-                    Tell us what should stay the same,
-                    what should change, the wording you need,
-                    preferred size, colours if relevant,
-                    and anything important about the design.
-                </p>
-
-            </div>
-
-
-            <button
-                type="submit"
-                class="primary-button custom-request-submit"
-            >
-                Send Custom Request
-            </button>
-
-            <p
-                class="custom-request-message"
-                id="customRequestMessage"
-            ></p>
-
-        </form>
-
-    </div>
-
-</section>
+        <p class="small-text">
+            Please don't unplug us. We're only a few layers in. 😜
+        </p>
 
     </main>
 
-
-    <footer class="site-footer">
-
-        <div>
-            <h3>3D Contour</h3>
-            <p>
-                Custom 3D printing and cake decorating products.
-            </p>
-        </div>
-
-        <p>
-            &copy; <span id="currentYear"></span> 3D Contour.
-            All rights reserved.
-        </p>
-
-    </footer>
-
-
-    <script src="script.js"></script>
-
-    <script type="module" src="custom-request.js"></script>
-
 </body>
-
 </html>
