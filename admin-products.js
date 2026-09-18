@@ -43,6 +43,9 @@ const productPrice =
 const productActive =
     document.getElementById("productActive");
 
+    const productFeatured =
+    document.getElementById("productFeatured");
+
 const saveProductButton =
     document.getElementById("saveProductButton");
 
@@ -265,6 +268,9 @@ saveProductButton.addEventListener(
         const active =
             productActive.checked;
 
+            const featured =
+    productFeatured.checked;
+
 
         if (!name) {
 
@@ -340,8 +346,10 @@ saveProductButton.addEventListener(
         category: category,
         price: price,
         active: active,
+        featured: featured,
         imageUrl: imageUrl
     }
+    
 );
 
 } else {
@@ -356,6 +364,7 @@ saveProductButton.addEventListener(
         category: category,
         price: price,
         active: active,
+        featured: featured,
         imageUrl: imageUrl
     }
 );
@@ -368,6 +377,7 @@ saveProductButton.addEventListener(
             productCategory.value = "";
             productPrice.value = "";
             productActive.checked = true;
+            productFeatured.checked = false;
 
             editingProductId = null;
 
@@ -767,6 +777,9 @@ productName.value =
 
             productActive.checked =
                 product.active === true;
+
+                productFeatured.checked =
+    product.featured === true;
 
             editingProductId =
                 productId;
