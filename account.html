@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        My Account | 3D Contour
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <main class="customer-auth-page">
+
+        <div class="customer-auth-card">
+
+            <div class="customer-auth-heading">
+
+                <span class="section-badge">
+                    My Account
+                </span>
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+                <p>
+                    Sign in to manage your orders,
+                    custom requests and account details.
+                </p>
+
+            </div>
+
+            <form
+    class="customer-login-form"
+    id="customerLoginForm"
+>
+
+    <div class="customer-form-group">
+
+        <label for="customerLoginEmail">
+            Email Address
+        </label>
+
+        <input
+            type="email"
+            id="customerLoginEmail"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+        >
+
+    </div>
+
+    <div class="customer-form-group">
+
+        <label for="customerLoginPassword">
+            Password
+        </label>
+
+        <input
+            type="password"
+            id="customerLoginPassword"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+        >
+
+    </div>
+
+    <div class="customer-login-options">
+
+        <button
+            type="button"
+            class="customer-forgot-password"
+            id="forgotPasswordButton"
+        >
+            Forgot password?
+        </button>
+
+    </div>
+
+    <button
+        type="submit"
+        class="customer-login-button"
+        id="customerLoginButton"
+    >
+        Sign In
+    </button>
+
+    <p
+        class="customer-auth-message"
+        id="customerLoginMessage"
+    ></p>
+
+</form>
+
+<div class="customer-register-prompt">
+
+    <p>
+        New to 3D Contour?
+    </p>
+
+    <button
+        type="button"
+        class="customer-register-button"
+        id="showRegisterButton"
+    >
+        Create an Account
+    </button>
+
+</div>
+
+<form
+    class="customer-register-form"
+    id="customerRegisterForm"
+    hidden
+>
+
+    <div class="customer-form-group">
+
+        <label for="customerFirstName">
+            First Name
+        </label>
+
+        <input
+            type="text"
+            id="customerFirstName"
+            autocomplete="given-name"
+            required
+        >
+
+    </div>
+
+    <div class="customer-form-group">
+
+        <label for="customerLastName">
+            Last Name
+        </label>
+
+        <input
+            type="text"
+            id="customerLastName"
+            autocomplete="family-name"
+            required
+        >
+
+    </div>
+
+    <div class="customer-form-group">
+
+        <label for="customerRegisterEmail">
+            Email Address
+        </label>
+
+        <input
+            type="email"
+            id="customerRegisterEmail"
+            autocomplete="email"
+            required
+        >
+
+    </div>
+
+    <div class="customer-form-group">
+
+        <label for="customerRegisterPassword">
+            Password
+        </label>
+
+        <input
+            type="password"
+            id="customerRegisterPassword"
+            autocomplete="new-password"
+            minlength="6"
+            required
+        >
+
+    </div>
+
+    <div class="customer-form-group">
+
+        <label for="customerConfirmPassword">
+            Confirm Password
+        </label>
+
+        <input
+            type="password"
+            id="customerConfirmPassword"
+            autocomplete="new-password"
+            minlength="6"
+            required
+        >
+
+    </div>
+
+    <button
+        type="submit"
+        class="customer-login-button"
+        id="customerRegisterButton"
+    >
+        Create Account
+    </button>
+
+    <p
+        class="customer-auth-message"
+        id="customerRegisterMessage"
+    ></p>
+
+    <button
+        type="button"
+        class="customer-back-login-button"
+        id="backToLoginButton"
+    >
+        Already have an account? Sign In
+    </button>
+
+</form>
+
+        </div>
+
+    </main>
+
+    <script
+    type="module"
+    src="customer-auth.js"
+></script>
+
+    <script src="maintenance.js"></script>
+
+</body>
+
+</html>

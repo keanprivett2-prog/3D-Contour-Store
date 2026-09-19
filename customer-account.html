@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        My Account | 3D Contour
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <main class="customer-account-page">
+
+        <div class="customer-account-container">
+
+            <div class="customer-account-header">
+
+                <div>
+
+                    <span class="section-badge">
+                        My Account
+                    </span>
+
+                    <h1>
+                        Welcome, <span id="customerWelcomeName">Customer</span>
+                    </h1>
+
+                    <p>
+                        Manage your orders, custom requests
+                        and account details.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="customerLogoutButton"
+                    class="customer-logout-button"
+                >
+                    Sign Out
+                </button>
+
+            </div>
+
+            <!-- =====================================
+     Account Overview
+====================================== -->
+
+<section class="customer-account-overview">
+
+    <div class="customer-account-card">
+
+        <h2>
+            Account Details
+        </h2>
+
+        <div class="customer-account-detail">
+
+            <span>
+                Name
+            </span>
+
+            <strong id="customerAccountName">
+                Loading...
+            </strong>
+
+        </div>
+
+        <div class="customer-account-detail">
+
+            <span>
+                Email
+            </span>
+
+            <strong id="customerAccountEmail">
+                Loading...
+            </strong>
+
+        </div>
+
+        <div class="customer-account-detail">
+
+    <span>
+        Phone Number
+    </span>
+
+    <strong id="customerAccountPhone">
+        Loading...
+    </strong>
+
+</div>
+
+<button
+    type="button"
+    class="customer-edit-details-button"
+    id="editCustomerDetailsButton"
+>
+    Edit Account Details
+</button>
+
+<form
+    class="customer-edit-details-form"
+    id="customerEditDetailsForm"
+    hidden
+>
+
+    <div class="customer-form-group">
+
+        <label for="editCustomerFirstName">
+            First Name
+        </label>
+
+        <input
+            type="text"
+            id="editCustomerFirstName"
+            autocomplete="given-name"
+            required
+        >
+
+    </div>
+
+    <div class="customer-form-group">
+
+        <label for="editCustomerLastName">
+            Last Name
+        </label>
+
+        <input
+            type="text"
+            id="editCustomerLastName"
+            autocomplete="family-name"
+            required
+        >
+
+    </div>
+
+    <div class="customer-form-group">
+
+        <label for="editCustomerPhone">
+            Phone Number
+        </label>
+
+        <input
+            type="tel"
+            id="editCustomerPhone"
+            autocomplete="tel"
+            placeholder="e.g. 082 123 4567"
+        >
+
+    </div>
+
+    <button
+        type="submit"
+        class="customer-login-button"
+    >
+        Save Changes
+    </button>
+
+    <button
+        type="button"
+        class="customer-back-login-button"
+        id="cancelEditDetailsButton"
+    >
+        Cancel
+    </button>
+
+    <p
+        class="customer-auth-message"
+        id="customerDetailsMessage"
+    ></p>
+
+</form>
+
+    </div>
+
+</section>
+
+<!-- =====================================
+     Delivery Details
+====================================== -->
+
+<section class="customer-delivery-section">
+
+    <div class="customer-account-card">
+
+        <h2>
+            Delivery Details
+        </h2>
+
+        <p>
+            Save your delivery information for faster checkout.
+        </p>
+
+        <div class="customer-account-detail">
+
+            <span>
+                Address
+            </span>
+
+            <strong id="customerDeliveryAddress">
+                Not added yet
+            </strong>
+
+        </div>
+
+        <button
+            type="button"
+            class="customer-edit-details-button"
+            id="editDeliveryDetailsButton"
+        >
+            Add Delivery Details
+        </button>
+
+        <form
+    class="customer-delivery-form"
+    id="customerDeliveryForm"
+    hidden
+>
+
+    <div class="customer-form-group">
+
+        <label for="deliveryStreetAddress">
+            Street Address
+        </label>
+
+        <input
+            type="text"
+            id="deliveryStreetAddress"
+            autocomplete="street-address"
+            placeholder="e.g. 12 Main Road"
+            required
+        >
+
+    </div>
+
+    <div class="customer-form-group">
+
+        <label for="deliverySuburb">
+            Suburb
+        </label>
+
+        <input
+            type="text"
+            id="deliverySuburb"
+            placeholder="e.g. Randburg"
+            required
+        >
+
+    </div>
+
+    <div class="customer-form-group">
+
+        <label for="deliveryCity">
+            City
+        </label>
+
+        <input
+            type="text"
+            id="deliveryCity"
+            autocomplete="address-level2"
+            placeholder="e.g. Johannesburg"
+            required
+        >
+
+    </div>
+
+    <div class="customer-form-group">
+
+        <label for="deliveryProvince">
+            Province
+        </label>
+
+        <select
+            id="deliveryProvince"
+            autocomplete="address-level1"
+            required
+        >
+            <option value="">
+                Select Province
+            </option>
+            <option value="Eastern Cape">Eastern Cape</option>
+            <option value="Free State">Free State</option>
+            <option value="Gauteng">Gauteng</option>
+            <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+            <option value="Limpopo">Limpopo</option>
+            <option value="Mpumalanga">Mpumalanga</option>
+            <option value="Northern Cape">Northern Cape</option>
+            <option value="North West">North West</option>
+            <option value="Western Cape">Western Cape</option>
+        </select>
+
+    </div>
+
+    <div class="customer-form-group">
+
+        <label for="deliveryPostalCode">
+            Postal Code
+        </label>
+
+        <input
+            type="text"
+            id="deliveryPostalCode"
+            autocomplete="postal-code"
+            placeholder="e.g. 2194"
+            required
+        >
+
+    </div>
+
+    <button
+        type="submit"
+        class="customer-login-button"
+    >
+        Save Delivery Details
+    </button>
+
+    <button
+        type="button"
+        class="customer-back-login-button"
+        id="cancelDeliveryDetailsButton"
+    >
+        Cancel
+    </button>
+
+    <p
+        class="customer-auth-message"
+        id="deliveryDetailsMessage"
+    ></p>
+
+</form>
+
+    </div>
+
+</section>
+
+<!-- =====================================
+     My Orders
+====================================== -->
+
+<section class="customer-orders-section">
+
+    <div class="customer-account-card">
+
+        <div class="customer-account-card-heading">
+
+            <div>
+
+                <h2>
+                    My Orders
+                </h2>
+
+                <p>
+                    View your recent orders and track their status.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div
+            class="customer-orders-list"
+            id="customerOrdersList"
+        >
+
+            <p class="customer-orders-empty">
+                Your orders will appear here.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+        </div>
+
+    </main>
+
+    <script
+    type="module"
+    src="customer-account.js"
+></script>
+
+    <script src="maintenance.js"></script>
+
+</body>
+
+</html>

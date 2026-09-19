@@ -2,6 +2,15 @@
 // Checkout Page
 // =====================================
 
+import {
+    auth,
+    db
+} from "./firebase.js";
+
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
 // =====================================
 // Page Elements
@@ -317,6 +326,18 @@ if (selectedDeliveryMethod === "delivery") {
 
     try {
 
+        const currentUser =
+    auth.currentUser;
+
+let customerIdToken = null;
+
+if (currentUser) {
+
+    customerIdToken =
+        await currentUser.getIdToken();
+
+}
+
     const payfastResponse =
     await fetch(
         "https://3d-contour-payfast.keanprivett2.workers.dev/",
@@ -324,9 +345,16 @@ if (selectedDeliveryMethod === "delivery") {
             method: "POST",
 
             headers: {
-                "Content-Type":
-                    "application/json"
-            },
+    "Content-Type":
+        "application/json",
+
+    ...(customerIdToken
+        ? {
+            "Authorization":
+                `Bearer ${customerIdToken}`
+        }
+        : {})
+},
 
             body: JSON.stringify({
                 returnUrl:
@@ -426,6 +454,56 @@ if (
     );
 }
 
+// =====================================
+// Load Signed-In Customer Details
+// =====================================
+
+async function loadCustomerCheckoutDetails() {
+
+    const currentUser =
+        auth.currentUser;
+
+    if (!currentUser) {
+        return;
+    }
+
+    try {
+
+        const customerReference =
+            doc(
+                db,
+                "customers",
+                currentUser.uid
+            );
+
+        const customerSnapshot =
+            await getDoc(
+                customerReference
+            );
+
+        if (!customerSnapshot.exists()) {
+            return;
+        }
+
+        const customer =
+            customerSnapshot.data();
+
+        console.log(
+            "Checkout customer profile:",
+            customer
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Unable to load customer checkout details:",
+            error
+        );
+
+    }
+
+}
+
 
 // =====================================
 // Start
@@ -436,3 +514,5 @@ updateCartButton();
 renderOrderSummary();
 
 updateDeliveryAddressVisibility();
+
+loadCustomerCheckoutDetails();
