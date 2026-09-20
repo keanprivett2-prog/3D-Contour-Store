@@ -34,6 +34,12 @@ const urlParameters =
 
 const customerOrderNumber =
     urlParameters.get("order");
+
+    if (customerOrderNumber) {
+
+    localStorage.removeItem("cart");
+
+}
 if (orderNumber) {
 
     if (customerOrderNumber) {
