@@ -8,6 +8,10 @@ import {
 } from "./firebase.js";
 
 import {
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+
+import {
     doc,
     getDoc
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
@@ -488,10 +492,80 @@ async function loadCustomerCheckoutDetails() {
         const customer =
             customerSnapshot.data();
 
-        console.log(
-            "Checkout customer profile:",
-            customer
-        );
+        
+
+        const customerName =
+    document.getElementById("customerName");
+
+const customerEmail =
+    document.getElementById("customerEmail");
+
+const customerPhone =
+    document.getElementById("customerPhone");
+
+if (customerName) {
+
+    customerName.value =
+        `${customer.firstName || ""} ${customer.lastName || ""}`.trim();
+
+}
+
+if (customerEmail) {
+
+    customerEmail.value =
+        customer.email || "";
+
+}
+
+if (customerPhone) {
+
+    customerPhone.value =
+        customer.phone || "";
+
+}
+
+const deliveryAddress =
+    customer.deliveryAddress || {};
+
+const streetAddress =
+    document.getElementById("streetAddress");
+
+const suburb =
+    document.getElementById("suburb");
+
+const city =
+    document.getElementById("city");
+
+const province =
+    document.getElementById("province");
+
+const postalCode =
+    document.getElementById("postalCode");
+
+if (streetAddress) {
+    streetAddress.value =
+        deliveryAddress.streetAddress || "";
+}
+
+if (suburb) {
+    suburb.value =
+        deliveryAddress.suburb || "";
+}
+
+if (city) {
+    city.value =
+        deliveryAddress.city || "";
+}
+
+if (province) {
+    province.value =
+        deliveryAddress.province || "";
+}
+
+if (postalCode) {
+    postalCode.value =
+        deliveryAddress.postalCode || "";
+}
 
     } catch (error) {
 
@@ -515,4 +589,10 @@ renderOrderSummary();
 
 updateDeliveryAddressVisibility();
 
-loadCustomerCheckoutDetails();
+onAuthStateChanged(auth, (user) => {
+
+    if (user) {
+        loadCustomerCheckoutDetails();
+    }
+
+});
