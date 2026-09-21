@@ -5114,3 +5114,228 @@ a {
     color: #222222;
     font-weight: 700;
 }
+
+/* =====================================
+   Order Confirmation Details
+===================================== */
+
+.order-confirmation-details {
+    width: 100%;
+    max-width: 620px;
+    margin: 30px auto 0;
+    text-align: left;
+}
+
+
+.order-confirmation-info-block {
+    background: #f8f8f8;
+    border: 1px solid #e1e1e1;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
+
+
+.order-confirmation-info-block h3 {
+    margin: 0 0 16px;
+    font-size: 19px;
+    color: #111;
+}
+
+
+.order-confirmation-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+
+.order-confirmation-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+
+.order-confirmation-item:first-child {
+    padding-top: 0;
+}
+
+
+.order-confirmation-item > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.order-confirmation-item strong {
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+
+.order-confirmation-item span {
+    font-size: 14px;
+    color: #666;
+}
+
+
+.order-confirmation-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 9px 0;
+    font-size: 15px;
+}
+
+
+.order-confirmation-summary-row span {
+    color: #666;
+}
+
+
+.order-confirmation-summary-row strong {
+    color: #111;
+    text-align: right;
+}
+
+
+.order-confirmation-info-block p {
+    margin: 0;
+    line-height: 1.7;
+    color: #444;
+}
+
+
+.order-confirmation-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    margin-top: 20px;
+    padding: 20px;
+
+    background: #111;
+    color: white;
+
+    border-radius: 12px;
+
+    font-size: 19px;
+}
+
+
+.order-confirmation-total strong {
+    font-size: 22px;
+}
+
+
+.order-confirmation-error {
+    padding: 20px;
+
+    background: #fff4f4;
+    border: 1px solid #e0b4b4;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+
+.order-confirmation-error h3 {
+    margin-bottom: 10px;
+}
+
+
+.order-confirmation-error p {
+    margin: 5px 0;
+    color: #666;
+}
+
+
+/* =====================================
+   Confirmation Buttons
+===================================== */
+
+.order-confirmation-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+
+.order-confirmation-actions .order-confirmation-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 22px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    background: #111;
+    color: white;
+}
+
+
+.order-confirmation-actions
+.order-confirmation-button.secondary {
+    background: #e9e9e9;
+    color: #111;
+}
+
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media (max-width: 600px) {
+
+    .order-confirmation-details {
+        width: 100%;
+    }
+
+
+    .order-confirmation-item {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+
+    .order-confirmation-item > strong {
+        align-self: flex-end;
+    }
+
+
+    .order-confirmation-summary-row {
+        align-items: flex-start;
+    }
+
+
+    .order-confirmation-summary-row strong {
+        max-width: 55%;
+    }
+
+
+    .order-confirmation-actions {
+        flex-direction: column;
+    }
+
+
+    .order-confirmation-actions
+    .order-confirmation-button {
+        width: 100%;
+    }
+
+}

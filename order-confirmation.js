@@ -185,16 +185,29 @@ function displayOrder(
         "Unavailable";
 
 
-    const customerName =
-        fields.customerName
-            ?.stringValue ||
-        "";
+    const customer =
+    fields.customer
+        ?.mapValue
+        ?.fields ||
+    {};
 
 
-    const customerEmail =
-        fields.customerEmail
-            ?.stringValue ||
-        "";
+const customerName =
+    customer.name
+        ?.stringValue ||
+    "";
+
+
+const customerEmail =
+    customer.email
+        ?.stringValue ||
+    "";
+
+
+const customerPhone =
+    customer.phone
+        ?.stringValue ||
+    "";
 
 
     const deliveryMethod =
@@ -246,14 +259,93 @@ function displayOrder(
 
 
     if (
-        deliveryMethod ===
-        "pudo-locker-locker"
-    ) {
+    deliveryMethod ===
+    "pudo-locker-address"
+) {
 
-        deliveryLabel =
-            "PUDO Locker → Locker";
+    const deliveryAddress =
+        fields.deliveryAddress
+            ?.mapValue
+            ?.fields ||
+        {};
 
-    }
+
+    const streetAddress =
+        deliveryAddress.streetAddress
+            ?.stringValue ||
+        "";
+
+
+    const suburb =
+        deliveryAddress.suburb
+            ?.stringValue ||
+        "";
+
+
+    const city =
+        deliveryAddress.city
+            ?.stringValue ||
+        "";
+
+
+    const province =
+        deliveryAddress.province
+            ?.stringValue ||
+        "";
+
+
+    const postalCode =
+        deliveryAddress.postalCode
+            ?.stringValue ||
+        "";
+
+
+    addressHTML = `
+
+        <div class="order-confirmation-info-block">
+
+            <h3>
+                Delivery Address
+            </h3>
+
+
+            <p>
+
+                ${escapeHTML(
+                    streetAddress
+                )}
+
+                <br>
+
+                ${escapeHTML(
+                    suburb
+                )}
+
+                <br>
+
+                ${escapeHTML(
+                    city
+                )}
+
+                <br>
+
+                ${escapeHTML(
+                    province
+                )}
+
+                <br>
+
+                ${escapeHTML(
+                    postalCode
+                )}
+
+            </p>
+
+        </div>
+
+    `;
+
+}
 
 
     else if (
@@ -518,6 +610,20 @@ function displayOrder(
                 </strong>
 
             </div>
+
+            <div class="order-confirmation-summary-row">
+
+    <span>
+        Phone
+    </span>
+
+    <strong>
+        ${escapeHTML(
+            customerPhone
+        )}
+    </strong>
+
+</div>
 
         </div>
 
