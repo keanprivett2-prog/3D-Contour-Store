@@ -21,7 +21,13 @@
 
 </head>
 
+
 <body>
+
+
+    <!-- =====================================
+         Header
+    ====================================== -->
 
     <header class="site-header">
 
@@ -34,15 +40,18 @@
                 3D Contour
             </a>
 
+
             <nav class="main-nav">
 
                 <a href="index.html">
                     Home
                 </a>
 
+
                 <a href="shop.html">
                     Shop
                 </a>
+
 
                 <button
                     id="cartButton"
@@ -58,61 +67,142 @@
     </header>
 
 
+
+    <!-- =====================================
+         Main
+    ====================================== -->
+
     <main class="order-confirmation-page">
+
 
         <div class="order-confirmation-card">
 
+
             <div class="order-confirmation-icon">
+
                 ✓
+
             </div>
 
+
             <h1>
+
                 Thank You For Your Order
+
             </h1>
 
-            <p>
-                Your order has been received successfully.
-            </p>
 
             <p>
-                Your Order Number:
+
+                Your order has been received successfully.
+
             </p>
+
+
+            <p>
+
+                Your Order Number:
+
+            </p>
+
 
             <strong
                 id="orderNumber"
                 class="order-confirmation-number"
             >
+
                 Loading...
+
             </strong>
 
+
+
+            <!-- =====================================
+                 Order Details
+            ====================================== -->
+
+            <div
+                id="orderDetails"
+                class="order-confirmation-details"
+            >
+
+                <p>
+
+                    Loading your order details...
+
+                </p>
+
+            </div>
+
+
+
             <p class="order-confirmation-message">
-                We will be in touch with you shortly regarding your order.
+
+                We will be in touch with you shortly regarding
+                your order.
+
             </p>
 
-            <a
-    href="/"
-    class="order-confirmation-button"
->
-    Return Home
-</a>
+
+
+            <!-- =====================================
+                 Buttons
+            ====================================== -->
+
+            <div class="order-confirmation-actions">
+
+                <a
+                    href="shop.html"
+                    class="order-confirmation-button"
+                >
+
+                    Continue Shopping
+
+                </a>
+
+
+                <a
+                    href="index.html"
+                    class="order-confirmation-button secondary"
+                >
+
+                    Return Home
+
+                </a>
+
+            </div>
+
 
         </div>
 
     </main>
 
 
+
+    <!-- =====================================
+         Footer
+    ====================================== -->
+
     <footer>
 
         <p>
-            © <span id="currentYear"></span> 3D Contour
+
+            ©
+            <span id="currentYear"></span>
+            3D Contour
+
         </p>
 
     </footer>
 
 
-    <script src="order-confirmation.js"></script>
 
-    
+    <script
+        type="module"
+        src="order-confirmation.js"
+    ></script>
+
+
 </body>
 
 </html>

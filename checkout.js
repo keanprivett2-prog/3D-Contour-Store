@@ -45,6 +45,22 @@ const deliveryMethodOptions =
         'input[name="deliveryMethod"]'
     );
 
+    // =====================================
+// Shipping Settings
+// =====================================
+
+let shippingSettings = {
+
+    collectionPrice: 0,
+
+    lockerLockerPrice: 80,
+
+    lockerAddressPrice: 110,
+
+    freeDeliveryThreshold: 500
+
+};
+
 
 // =====================================
 // Load Cart
@@ -103,6 +119,80 @@ if (cartButton) {
     );
 }
 
+// =====================================
+// Load Shipping Settings
+// =====================================
+
+async function loadShippingSettings() {
+
+    try {
+
+        const shippingReference =
+            doc(
+                db,
+                "settings",
+                "shipping"
+            );
+
+
+        const shippingSnapshot =
+            await getDoc(
+                shippingReference
+            );
+
+
+        if (
+            shippingSnapshot.exists()
+        ) {
+
+            const data =
+                shippingSnapshot.data();
+
+
+            shippingSettings = {
+
+                collectionPrice:
+                    Number(
+                        data.collectionPrice
+                    ) || 0,
+
+                lockerLockerPrice:
+                    Number(
+                        data.lockerLockerPrice
+                    ) || 0,
+
+                lockerAddressPrice:
+                    Number(
+                        data.lockerAddressPrice
+                    ) || 0,
+
+                freeDeliveryThreshold:
+                    Number(
+                        data.freeDeliveryThreshold
+                    ) || 500
+
+            };
+
+        }
+
+
+        // Re-render checkout using the
+        // newly loaded settings.
+
+        renderOrderSummary();
+
+
+    } catch (error) {
+
+        console.error(
+            "Unable to load shipping settings:",
+            error
+        );
+
+    }
+
+}
+
 
 // =====================================
 // Render Order Summary
@@ -127,6 +217,85 @@ function renderOrderSummary() {
 
     let totalPrice = 0;
 
+    const selectedDeliveryMethod =
+    document.querySelector(
+        'input[name="deliveryMethod"]:checked'
+    )?.value;
+
+
+// =====================================
+// Calculate Order Subtotal
+// =====================================
+
+let orderSubtotal = 0;
+
+
+cart.forEach(function (item) {
+
+    const price =
+        Number(item.price) || 0;
+
+
+    const itemTotal =
+        item.type === "custom-print"
+
+            ? Math.max(
+                price * item.quantity,
+                Number(item.minimumOrder) || 0
+            )
+
+            : price * item.quantity;
+
+
+    orderSubtotal += itemTotal;
+
+});
+
+
+
+// =====================================
+// Calculate Delivery Fee
+// =====================================
+
+let deliveryFee = 0;
+
+
+if (
+    selectedDeliveryMethod ===
+    "collection"
+) {
+
+    deliveryFee =
+        shippingSettings.collectionPrice;
+
+}
+
+
+else if (
+    selectedDeliveryMethod ===
+    "pudo-locker-locker"
+) {
+
+    deliveryFee =
+        orderSubtotal > shippingSettings.freeDeliveryThreshold
+            ? 0
+            : shippingSettings.lockerLockerPrice;
+
+}
+
+
+else if (
+    selectedDeliveryMethod ===
+    "pudo-locker-address"
+) {
+
+    deliveryFee =
+        orderSubtotal > shippingSettings.freeDeliveryThreshold
+            ? 0
+            : shippingSettings.lockerAddressPrice;
+
+}
+
     checkoutOrderSummary.innerHTML = "";
 
     cart.forEach(function (item) {
@@ -135,7 +304,12 @@ function renderOrderSummary() {
             Number(item.price) || 0;
 
         const itemTotal =
-            price * item.quantity;
+    item.type === "custom-print"
+        ? Math.max(
+            price * item.quantity,
+            Number(item.minimumOrder) || 0
+        )
+        : price * item.quantity;
 
         totalPrice += itemTotal;
 
@@ -147,25 +321,119 @@ function renderOrderSummary() {
 
         orderItem.innerHTML = `
 
-            <div>
-                <strong>
-                    ${item.name}
-                </strong>
+    <div>
 
-                <p>
-                    Qty: ${item.quantity}
-                </p>
-            </div>
+        <strong>
+            ${
+                item.type === "custom-print"
+                    ? "Custom 3D Print"
+                    : item.name
+            }
+        </strong>
 
-            <strong>
-                R${itemTotal.toFixed(2)}
-            </strong>
-        `;
+
+        ${
+            item.type === "custom-print"
+                ? `
+
+                    <p>
+                        <strong>File:</strong>
+                        ${item.filename || "STL file"}
+                    </p>
+
+                    <p>
+                        <strong>Material:</strong>
+                        ${item.material || "PLA"}
+                    </p>
+
+                    <p>
+                        R${price.toFixed(2)} per item
+                    </p>
+
+                `
+                : ""
+        }
+
+
+        <p>
+            Qty: ${item.quantity}
+        </p>
+
+    </div>
+
+
+    <strong>
+        R${itemTotal.toFixed(2)}
+    </strong>
+
+`;
 
         checkoutOrderSummary.appendChild(
             orderItem
         );
     });
+
+    const deliverySection =
+    document.createElement("div");
+
+deliverySection.className =
+    "checkout-summary-delivery";
+
+let deliveryLabel =
+    "Collection";
+
+
+if (
+    selectedDeliveryMethod ===
+    "pudo-locker-locker"
+) {
+
+    deliveryLabel =
+        "PUDO Locker → Locker";
+
+}
+
+
+else if (
+    selectedDeliveryMethod ===
+    "pudo-locker-address"
+) {
+
+    deliveryLabel =
+        "PUDO Locker → Address";
+
+}
+
+
+deliverySection.innerHTML = `
+
+    <span>
+
+        ${deliveryLabel}
+
+    </span>
+
+
+    <strong>
+
+        ${
+            deliveryFee === 0 &&
+            selectedDeliveryMethod !== "collection"
+
+                ? "FREE"
+
+                : `R${deliveryFee.toFixed(2)}`
+        }
+
+    </strong>
+
+`;
+
+checkoutOrderSummary.appendChild(
+    deliverySection
+);
+
+totalPrice += deliveryFee;
 
     const totalSection =
         document.createElement("div");
@@ -190,7 +458,7 @@ function renderOrderSummary() {
 }
 
 // =====================================
-// Delivery Method
+// Delivery Method Visibility
 // =====================================
 
 function updateDeliveryAddressVisibility() {
@@ -200,52 +468,168 @@ function updateDeliveryAddressVisibility() {
             'input[name="deliveryMethod"]:checked'
         );
 
+
     if (!selectedDeliveryMethod) {
+
         return;
+
     }
 
-    if (
-    selectedDeliveryMethod.value === "delivery"
-) {
 
-    deliveryAddressSection.hidden =
-        false;
+    const deliveryMethod =
+        selectedDeliveryMethod.value;
 
-    document.getElementById("streetAddress").required =
-        true;
 
-    document.getElementById("suburb").required =
-        true;
+    const pudoLockerSection =
+        document.getElementById(
+            "pudoLockerSection"
+        );
 
-    document.getElementById("city").required =
-        true;
 
-    document.getElementById("province").required =
-        true;
+    // =====================================
+    // Collection
+    // =====================================
 
-    document.getElementById("postalCode").required =
-        true;
+    if (deliveryMethod === "collection") {
 
-} else {
+        if (pudoLockerSection) {
 
-    deliveryAddressSection.hidden =
-        true;
+            pudoLockerSection.hidden = true;
 
-    document.getElementById("streetAddress").required =
-        false;
+        }
 
-    document.getElementById("suburb").required =
-        false;
 
-    document.getElementById("city").required =
-        false;
+        if (deliveryAddressSection) {
 
-    document.getElementById("province").required =
-        false;
+            deliveryAddressSection.hidden = true;
 
-    document.getElementById("postalCode").required =
-        false;
-}
+        }
+
+    }
+
+
+    // =====================================
+    // PUDO Locker → Locker
+    // =====================================
+
+    else if (
+        deliveryMethod === "pudo-locker-locker"
+    ) {
+
+        if (pudoLockerSection) {
+
+            pudoLockerSection.hidden = false;
+
+        }
+
+
+        if (deliveryAddressSection) {
+
+            deliveryAddressSection.hidden = true;
+
+        }
+
+    }
+
+
+    // =====================================
+    // PUDO Locker → Address
+    // =====================================
+
+    else if (
+        deliveryMethod === "pudo-locker-address"
+    ) {
+
+        if (pudoLockerSection) {
+
+            pudoLockerSection.hidden = true;
+
+        }
+
+
+        if (deliveryAddressSection) {
+
+            deliveryAddressSection.hidden = false;
+
+        }
+
+    }
+
+
+    // =====================================
+    // Address Required Fields
+    // =====================================
+
+    const addressRequired =
+        deliveryMethod ===
+        "pudo-locker-address";
+
+
+    const streetAddress =
+        document.getElementById(
+            "streetAddress"
+        );
+
+    const suburb =
+        document.getElementById(
+            "suburb"
+        );
+
+    const city =
+        document.getElementById(
+            "city"
+        );
+
+    const province =
+        document.getElementById(
+            "province"
+        );
+
+    const postalCode =
+        document.getElementById(
+            "postalCode"
+        );
+
+
+    if (streetAddress) {
+
+        streetAddress.required =
+            addressRequired;
+
+    }
+
+
+    if (suburb) {
+
+        suburb.required =
+            addressRequired;
+
+    }
+
+
+    if (city) {
+
+        city.required =
+            addressRequired;
+
+    }
+
+
+    if (province) {
+
+        province.required =
+            addressRequired;
+
+    }
+
+
+    if (postalCode) {
+
+        postalCode.required =
+            addressRequired;
+
+    }
+
 }
 
 
@@ -254,8 +638,15 @@ deliveryMethodOptions.forEach(
 
         option.addEventListener(
             "change",
-            updateDeliveryAddressVisibility
+            function () {
+
+                updateDeliveryAddressVisibility();
+
+                renderOrderSummary();
+
+            }
         );
+
     }
 );
 
@@ -308,7 +699,7 @@ const selectedDeliveryMethod =
 
 let deliveryAddress = null;
 
-if (selectedDeliveryMethod === "delivery") {
+if (selectedDeliveryMethod === "pudo-locker-address") {
 
     deliveryAddress = {
         streetAddress:
@@ -588,6 +979,8 @@ updateCartButton();
 renderOrderSummary();
 
 updateDeliveryAddressVisibility();
+
+loadShippingSettings();
 
 onAuthStateChanged(auth, (user) => {
 

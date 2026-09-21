@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Shipping Settings | 3D Contour
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         Header
+    ====================================== -->
+
+    <header class="site-header">
+
+        <div class="logo">
+
+            <h1>
+                3D Contour Admin
+            </h1>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <button id="backToDashboardButton">
+
+                Dashboard
+
+            </button>
+
+
+            <button id="logoutButton">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         Main
+    ====================================== -->
+
+    <main class="admin-dashboard">
+
+
+        <section class="admin-dashboard-header">
+
+            <p class="section-label">
+
+                Store Management
+
+            </p>
+
+
+            <h2>
+
+                Shipping Settings
+
+            </h2>
+
+
+            <p>
+
+                Manage your delivery methods and
+                shipping prices.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================
+             Shipping Settings Card
+        ====================================== -->
+
+        <section class="admin-card shipping-settings-card">
+
+
+            <h3>
+
+                PUDO Shipping
+
+            </h3>
+
+
+            <p>
+
+                Set the customer-facing shipping prices
+                used during checkout.
+
+            </p>
+
+
+
+            <!-- Collection -->
+
+            <div class="shipping-setting-row">
+
+                <div>
+
+                    <label for="collectionPrice">
+
+                        Collection
+
+                    </label>
+
+
+                    <small>
+
+                        Free collection from 3D Contour.
+
+                    </small>
+
+                </div>
+
+
+                <div class="shipping-price-input">
+
+                    <span>
+
+                        R
+
+                    </span>
+
+
+                    <input
+                        type="number"
+                        id="collectionPrice"
+                        min="0"
+                        step="0.01"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Locker to Locker -->
+
+            <div class="shipping-setting-row">
+
+                <div>
+
+                    <label for="lockerLockerPrice">
+
+                        PUDO Locker → Locker
+
+                    </label>
+
+
+                    <small>
+
+                        Customer collects from their selected
+                        PUDO locker.
+
+                    </small>
+
+                </div>
+
+
+                <div class="shipping-price-input">
+
+                    <span>
+
+                        R
+
+                    </span>
+
+
+                    <input
+                        type="number"
+                        id="lockerLockerPrice"
+                        min="0"
+                        step="0.01"
+                        value="80"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Locker to Address -->
+
+            <div class="shipping-setting-row">
+
+                <div>
+
+                    <label for="lockerAddressPrice">
+
+                        PUDO Locker → Address
+
+                    </label>
+
+
+                    <small>
+
+                        Customer receives delivery at their
+                        address.
+
+                    </small>
+
+                </div>
+
+
+                <div class="shipping-price-input">
+
+                    <span>
+
+                        R
+
+                    </span>
+
+
+                    <input
+                        type="number"
+                        id="lockerAddressPrice"
+                        min="0"
+                        step="0.01"
+                        value="110"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Free Delivery Threshold -->
+
+            <div class="shipping-setting-row">
+
+                <div>
+
+                    <label for="freeDeliveryThreshold">
+
+                        Free Delivery Threshold
+
+                    </label>
+
+
+                    <small>
+
+                        Orders above this amount qualify
+                        for free PUDO delivery.
+
+                    </small>
+
+                </div>
+
+
+                <div class="shipping-price-input">
+
+                    <span>
+
+                        R
+
+                    </span>
+
+
+                    <input
+                        type="number"
+                        id="freeDeliveryThreshold"
+                        min="0"
+                        step="0.01"
+                        value="500"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Save -->
+
+            <div class="shipping-settings-actions">
+
+                <button
+                    id="saveShippingSettingsButton"
+                >
+
+                    Save Shipping Settings
+
+                </button>
+
+            </div>
+
+
+
+            <!-- Status -->
+
+            <p
+                id="shippingSettingsStatus"
+                class="shipping-settings-status"
+                hidden
+            ></p>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             Back
+        ====================================== -->
+
+        <section class="admin-card">
+
+            <button
+                id="backToDashboardButtonBottom"
+            >
+
+                ← Back To Dashboard
+
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         JavaScript
+    ====================================== -->
+
+    <script
+        type="module"
+        src="admin-shipping.js"
+    ></script>
+
+
+</body>
+
+</html>

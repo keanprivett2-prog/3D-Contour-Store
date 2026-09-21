@@ -171,3 +171,23 @@ manageCustomRequestsButton.addEventListener(
 
     }
 );
+
+// =====================================
+// Shipping Settings
+// =====================================
+
+const manageShippingButton =
+    document.getElementById(
+        "manageShippingButton"
+    );
+
+
+manageShippingButton.addEventListener(
+    "click",
+    function () {
+
+        window.location.href =
+            "admin-shipping.html";
+
+    }
+);

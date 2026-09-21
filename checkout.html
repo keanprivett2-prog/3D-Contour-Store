@@ -10,7 +10,9 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Checkout | 3D Contour</title>
+    <title>
+        Checkout | 3D Contour
+    </title>
 
     <link
         rel="stylesheet"
@@ -19,15 +21,24 @@
 
 </head>
 
+
 <body>
+
+
+    <!-- =====================================
+         Header
+    ====================================== -->
 
     <header class="site-header">
 
         <div class="logo">
+
             <a href="index.html">
                 3D Contour
             </a>
+
         </div>
+
 
         <nav class="main-nav">
 
@@ -39,19 +50,20 @@
                 Shop
             </a>
 
-            <a href="#">
+            <a href="custom-printing.html">
                 Custom Printing
             </a>
 
             <a href="about.html">
-    About Us
-</a>
+                About Us
+            </a>
 
             <a href="#">
                 Contact
             </a>
 
         </nav>
+
 
         <div class="header-actions">
 
@@ -68,13 +80,25 @@
     </header>
 
 
+
+    <!-- =====================================
+         Main Checkout
+    ====================================== -->
+
     <main class="checkout-page">
+
 
         <h1>
             Checkout
         </h1>
 
+
         <div class="checkout-layout">
+
+
+            <!-- =====================================
+                 Customer Details
+            ====================================== -->
 
             <section class="checkout-form-section">
 
@@ -82,10 +106,16 @@
                     Customer Details
                 </h2>
 
+
                 <form id="checkoutForm">
 
+
+                    <!-- Full Name -->
+
                     <label for="customerName">
+
                         Full Name
+
                     </label>
 
                     <input
@@ -94,8 +124,14 @@
                         required
                     >
 
+
+
+                    <!-- Email -->
+
                     <label for="customerEmail">
+
                         Email Address
+
                     </label>
 
                     <input
@@ -104,8 +140,14 @@
                         required
                     >
 
+
+
+                    <!-- Phone -->
+
                     <label for="customerPhone">
+
                         Phone Number
+
                     </label>
 
                     <input
@@ -114,175 +156,388 @@
                         required
                     >
 
+
+
+                    <!-- =====================================
+                         Delivery Method
+                    ====================================== -->
+
                     <fieldset class="delivery-method-section">
 
-    <legend>
-        Delivery Method
-    </legend>
 
-    <label class="delivery-option">
+                        <legend>
+                            Delivery Method
+                        </legend>
 
-        <input
-            type="radio"
-            name="deliveryMethod"
-            value="collection"
-            checked
-        >
 
-        Collection
 
-    </label>
+                        <!-- Collection -->
 
-    <label class="delivery-option">
+                        <label class="delivery-option">
 
-        <input
-            type="radio"
-            name="deliveryMethod"
-            value="delivery"
-        >
+                            <input
+                                type="radio"
+                                name="deliveryMethod"
+                                value="collection"
+                                checked
+                            >
 
-        Delivery
+                            <span>
 
-    </label>
+                                <strong>
+                                    Collection
+                                </strong>
 
-</fieldset>
+                                <small>
+                                    Free
+                                </small>
 
-<div
-    class="delivery-address-section"
-    id="deliveryAddressSection"
-    hidden
->
+                            </span>
 
-    <h3>
-        Delivery Address
-    </h3>
+                        </label>
 
-    <label for="streetAddress">
-        Street Address
-    </label>
 
-    <input
-        type="text"
-        id="streetAddress"
-    >
 
-    <label for="suburb">
-        Suburb
-    </label>
+                        <!-- PUDO Locker to Locker -->
 
-    <input
-        type="text"
-        id="suburb"
-    >
+                        <label class="delivery-option">
 
-    <label for="city">
-        City
-    </label>
+                            <input
+                                type="radio"
+                                name="deliveryMethod"
+                                value="pudo-locker-locker"
+                            >
 
-    <input
-        type="text"
-        id="city"
-    >
+                            <span>
 
-    <label for="province">
-        Province
-    </label>
+                                <strong>
+                                    PUDO Locker → Locker
+                                </strong>
 
-    <select id="province">
+                                <small>
+                                    Send your order to a PUDO locker of your choice.
+                                </small>
 
-        <option value="">
-            Select Province
-        </option>
+                            </span>
 
-        <option value="Eastern Cape">
-            Eastern Cape
-        </option>
+                        </label>
 
-        <option value="Free State">
-            Free State
-        </option>
 
-        <option value="Gauteng">
-            Gauteng
-        </option>
 
-        <option value="KwaZulu-Natal">
-            KwaZulu-Natal
-        </option>
+                        <!-- PUDO Locker to Address -->
 
-        <option value="Limpopo">
-            Limpopo
-        </option>
+                        <label class="delivery-option">
 
-        <option value="Mpumalanga">
-            Mpumalanga
-        </option>
+                            <input
+                                type="radio"
+                                name="deliveryMethod"
+                                value="pudo-locker-address"
+                            >
 
-        <option value="Northern Cape">
-            Northern Cape
-        </option>
+                            <span>
 
-        <option value="North West">
-            North West
-        </option>
+                                <strong>
+                                    PUDO Locker → Address
+                                </strong>
 
-        <option value="Western Cape">
-            Western Cape
-        </option>
+                                <small>
+                                    Delivered from PUDO to your address.
+                                </small>
 
-    </select>
+                            </span>
 
-    <label for="postalCode">
-        Postal Code
-    </label>
+                        </label>
 
-    <input
-        type="text"
-        id="postalCode"
-    >
 
-</div>
+                    </fieldset>
 
-<button
-    type="submit"
-    id="placeOrderButton"
-    class="checkout-submit-button"
 
-    <fieldset class="payment-method-section">
 
-    <legend>
-        Payment Method
-    </legend>
+                    <!-- =====================================
+                         PUDO Locker Selection
+                    ====================================== -->
 
-    <label class="payment-option">
+                    <div
+                        class="pudo-locker-section"
+                        id="pudoLockerSection"
+                        hidden
+                    >
 
-        <input
-            type="radio"
-            name="paymentMethod"
-            value="payfast"
-            checked
-        >
 
-        Pay securely with Payfast
+                        <h3>
+                            Select PUDO Locker
+                        </h3>
 
-    </label>
 
-</fieldset>
->
+                        <p class="checkout-help-text">
 
-    Continue
-</button>
+                            Choose the PUDO locker where you would like your order delivered.
+
+                        </p>
+
+
+                        <label for="pudoLockerSearch">
+
+                            Search for a PUDO locker
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="pudoLockerSearch"
+                            placeholder="Search by suburb, city or postal code"
+                            autocomplete="off"
+                        >
+
+
+                        <label for="pudoLockerSelect">
+
+                            Destination PUDO Locker
+
+                        </label>
+
+
+                        <select
+                            id="pudoLockerSelect"
+                        >
+
+                            <option value="">
+
+                                Select a PUDO locker
+
+                            </option>
+
+                        </select>
+
+
+                        <p
+                            id="pudoLockerStatus"
+                            class="pudo-status-message"
+                            hidden
+                        ></p>
+
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         PUDO Locker to Address
+                    ====================================== -->
+
+                    <div
+                        class="delivery-address-section"
+                        id="deliveryAddressSection"
+                        hidden
+                    >
+
+
+                        <h3>
+                            Delivery Address
+                        </h3>
+
+
+                        <p class="checkout-help-text">
+
+                            Enter the address where PUDO should deliver your order.
+
+                        </p>
+
+
+
+                        <!-- Street -->
+
+                        <label for="streetAddress">
+
+                            Street Address
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="streetAddress"
+                        >
+
+
+
+                        <!-- Suburb -->
+
+                        <label for="suburb">
+
+                            Suburb
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="suburb"
+                        >
+
+
+
+                        <!-- City -->
+
+                        <label for="city">
+
+                            City
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                        >
+
+
+
+                        <!-- Province -->
+
+                        <label for="province">
+
+                            Province
+
+                        </label>
+
+                        <select id="province">
+
+
+                            <option value="">
+
+                                Select Province
+
+                            </option>
+
+
+                            <option value="Eastern Cape">
+                                Eastern Cape
+                            </option>
+
+
+                            <option value="Free State">
+                                Free State
+                            </option>
+
+
+                            <option value="Gauteng">
+                                Gauteng
+                            </option>
+
+
+                            <option value="KwaZulu-Natal">
+                                KwaZulu-Natal
+                            </option>
+
+
+                            <option value="Limpopo">
+                                Limpopo
+                            </option>
+
+
+                            <option value="Mpumalanga">
+                                Mpumalanga
+                            </option>
+
+
+                            <option value="Northern Cape">
+                                Northern Cape
+                            </option>
+
+
+                            <option value="North West">
+                                North West
+                            </option>
+
+
+                            <option value="Western Cape">
+                                Western Cape
+                            </option>
+
+
+                        </select>
+
+
+
+                        <!-- Postal Code -->
+
+                        <label for="postalCode">
+
+                            Postal Code
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="postalCode"
+                        >
+
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         Payment Method
+                    ====================================== -->
+
+                    <fieldset class="payment-method-section">
+
+
+                        <legend>
+                            Payment Method
+                        </legend>
+
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="paymentMethod"
+                                value="payfast"
+                                checked
+                            >
+
+                            Pay securely with Payfast
+
+                        </label>
+
+
+                    </fieldset>
+
+
+
+                    <!-- =====================================
+                         Place Order
+                    ====================================== -->
+
+                    <button
+                        type="submit"
+                        id="placeOrderButton"
+                        class="checkout-submit-button"
+                    >
+
+                        Continue to Payment
+
+                    </button>
+
 
                 </form>
 
             </section>
 
 
+
+            <!-- =====================================
+                 Order Summary
+            ====================================== -->
+
             <section class="checkout-summary-section">
+
 
                 <h2>
                     Order Summary
                 </h2>
+
 
                 <div id="checkoutOrderSummary">
 
@@ -292,30 +547,53 @@
 
                 </div>
 
+
             </section>
 
+
         </div>
+
 
     </main>
 
 
+
+    <!-- =====================================
+         Footer
+    ====================================== -->
+
     <footer>
 
         <p>
+
             &copy;
+
             <span id="currentYear"></span>
-            3D Contour. All rights reserved.
+
+            3D Contour.
+
+            All rights reserved.
+
         </p>
 
     </footer>
 
 
-    <script
-    type="module"
-    src="checkout.js"
-></script>
 
-<script src="maintenance.js"></script>
+    <!-- =====================================
+         JavaScript
+    ====================================== -->
+
+    <script
+        type="module"
+        src="checkout.js"
+    ></script>
+
+
+    <script
+        src="maintenance.js"
+    ></script>
+
 
 </body>
 

@@ -343,7 +343,12 @@ function renderCart() {
 
 
         const itemTotal =
-            price * item.quantity;
+    item.type === "custom-print"
+        ? Math.max(
+            price * item.quantity,
+            Number(item.minimumOrder) || 0
+        )
+        : price * item.quantity;
 
 
         totalPrice += itemTotal;
@@ -364,17 +369,17 @@ function renderCart() {
             item.imageUrl
                 ? `
                     <a
-    href="product.html?id=${item.id}"
-    class="cart-item-image-link"
->
+                        href="product.html?id=${item.id}"
+                        class="cart-item-image-link"
+                    >
 
-    <img
-        src="${item.imageUrl}"
-        alt="${item.name}"
-        class="cart-item-image"
-    >
+                        <img
+                            src="${item.imageUrl}"
+                            alt="${item.name}"
+                            class="cart-item-image"
+                        >
 
-</a>
+                    </a>
                 `
                 : `
                     <div class="cart-item-image-placeholder">
@@ -386,17 +391,46 @@ function renderCart() {
         <div class="cart-item-info">
 
             <h3>
-    <a
-        href="product.html?id=${item.id}"
-        class="cart-item-name-link"
-    >
-        ${item.name}
-    </a>
-</h3>
+                ${
+                    item.type === "custom-print"
+                        ? "Custom 3D Print"
+                        : `
+                            <a
+                                href="product.html?id=${item.id}"
+                                class="cart-item-name-link"
+                            >
+                                ${item.name}
+                            </a>
+                        `
+                }
+            </h3>
+
+
+            ${
+                item.type === "custom-print"
+                    ? `
+                        <div class="custom-print-cart-details">
+
+                            <p>
+                                <strong>File:</strong>
+                                ${item.filename || "STL file"}
+                            </p>
+
+                            <p>
+                                <strong>Material:</strong>
+                                ${item.material || "PLA"}
+                            </p>
+
+                        </div>
+                    `
+                    : ""
+            }
+
 
             <p>
                 R${price.toFixed(2)} each
             </p>
+
 
             <strong>
                 R${itemTotal.toFixed(2)}
