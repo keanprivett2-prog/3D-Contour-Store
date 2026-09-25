@@ -262,6 +262,8 @@ const customerPhone =
     let deliveryLabel =
         "Collection";
 
+        let addressHTML = "";
+
 
     if (
     deliveryMethod ===
@@ -389,7 +391,7 @@ const customerPhone =
     // Delivery Address
     // =====================================
 
-    let addressHTML = "";
+    
 
 
     if (
