@@ -2,6 +2,63 @@
 // Checkout Page
 // =====================================
 
+// =====================================
+// Production & Delivery Lead Times
+// =====================================
+
+const LEAD_TIME_SETTINGS = {
+
+    production: [
+
+        {
+            maxQuantity: 10,
+            workingDays: 2
+        },
+
+        {
+            maxQuantity: 25,
+            workingDays: 3
+        },
+
+        {
+            maxQuantity: 50,
+            workingDays: 5
+        },
+
+        {
+            maxQuantity: 100,
+            workingDays: 7
+        },
+
+        {
+            maxQuantity: Infinity,
+            workingDays: 10
+        }
+
+    ],
+
+
+    delivery: {
+
+        collection: {
+            minWorkingDays: 0,
+            maxWorkingDays: 0
+        },
+
+        "pudo-locker-locker": {
+            minWorkingDays: 2,
+            maxWorkingDays: 4
+        },
+
+        "pudo-locker-address": {
+            minWorkingDays: 2,
+            maxWorkingDays: 4
+        }
+
+    }
+
+};
+
 import {
     auth,
     db
@@ -70,6 +127,264 @@ let cart =
     JSON.parse(
         localStorage.getItem("cart")
     ) || [];
+
+    // =====================================
+// Working Day Calculator
+// =====================================
+
+function addWorkingDays(startDate, workingDays) {
+
+    const date = new Date(startDate);
+
+    let daysAdded = 0;
+
+    while (daysAdded < workingDays) {
+
+        date.setDate(date.getDate() + 1);
+
+        const day = date.getDay();
+
+        // Monday = 1
+        // Tuesday = 2
+        // Wednesday = 3
+        // Thursday = 4
+        // Friday = 5
+        // Saturday = 6
+        // Sunday = 0
+
+        if (day !== 0 && day !== 6) {
+
+            daysAdded++;
+
+        }
+
+    }
+
+    return date;
+}
+
+
+function formatDate(date) {
+
+    return date.toLocaleDateString(
+        "en-ZA",
+        {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+function getProductionLeadTime(quantity) {
+
+    const rule =
+
+        LEAD_TIME_SETTINGS.production.find(
+
+            function (rule) {
+
+                return quantity <= rule.maxQuantity;
+
+            }
+
+        );
+
+
+    return rule
+
+        ? rule.workingDays
+
+        : 0;
+
+}
+
+
+function getDeliveryLeadTime(deliveryMethod) {
+
+    return (
+
+        LEAD_TIME_SETTINGS.delivery[deliveryMethod]
+
+        || {
+
+            minWorkingDays: 0,
+            maxWorkingDays: 0
+
+        }
+
+    );
+
+}
+
+
+function updateLeadTimeInformation() {
+
+    if (cart.length === 0) {
+
+        return;
+
+    }
+
+
+    const totalQuantity =
+
+        getTotalCartQuantity();
+
+
+    const productionDays =
+
+        getProductionLeadTime(
+            totalQuantity
+        );
+
+
+    const selectedDeliveryMethod =
+
+        document.querySelector(
+            'input[name="deliveryMethod"]:checked'
+        )?.value || "collection";
+
+
+    const deliveryTime =
+
+        getDeliveryLeadTime(
+            selectedDeliveryMethod
+        );
+
+
+    const earliestDate =
+
+        addWorkingDays(
+            new Date(),
+            productionDays +
+            deliveryTime.minWorkingDays
+        );
+
+
+    const productionElement =
+
+        document.getElementById(
+            "productionLeadTime"
+        );
+
+
+    const deliveryElement =
+
+        document.getElementById(
+            "deliveryLeadTime"
+        );
+
+
+    const earliestDateElement =
+
+        document.getElementById(
+            "earliestAvailableDate"
+        );
+
+
+    if (productionElement) {
+
+        productionElement.textContent =
+
+            productionDays === 1
+
+                ? "1 working day"
+
+                : `${productionDays} working days`;
+
+    }
+
+
+    if (deliveryElement) {
+
+        if (
+            deliveryTime.minWorkingDays ===
+            deliveryTime.maxWorkingDays
+        ) {
+
+            deliveryElement.textContent =
+
+                deliveryTime.minWorkingDays === 0
+
+                    ? "Collection"
+
+                    : `${deliveryTime.minWorkingDays} working days`;
+
+        }
+
+        else {
+
+            deliveryElement.textContent =
+
+                `${deliveryTime.minWorkingDays}–${deliveryTime.maxWorkingDays} working days`;
+
+        }
+
+    }
+
+
+    if (earliestDateElement) {
+
+        earliestDateElement.textContent =
+
+            formatDate(earliestDate);
+
+    }
+
+
+    updateRequiredByDate(earliestDate);
+
+}
+
+
+function updateRequiredByDate(earliestDate) {
+
+    const requiredByDate =
+
+        document.getElementById(
+            "requiredByDate"
+        );
+
+
+    if (!requiredByDate) {
+
+        return;
+
+    }
+
+
+    const year =
+        earliestDate.getFullYear();
+
+    const month =
+        String(
+            earliestDate.getMonth() + 1
+        ).padStart(2, "0");
+
+    const day =
+        String(
+            earliestDate.getDate()
+        ).padStart(2, "0");
+
+
+    requiredByDate.min =
+
+        `${year}-${month}-${day}`;
+
+
+    if (
+        requiredByDate.value &&
+        requiredByDate.value < requiredByDate.min
+    ) {
+
+        requiredByDate.value = "";
+
+    }
+
+}
 
 
 // =====================================
@@ -644,6 +959,8 @@ deliveryMethodOptions.forEach(
 
                 renderOrderSummary();
 
+                updateLeadTimeInformation();
+
             }
         );
 
@@ -678,6 +995,43 @@ if (checkoutForm) {
                 return;
             }
 
+            // =====================================
+// Validate Required By Date
+// =====================================
+
+const requiredByDateInput =
+    document.getElementById("requiredByDate");
+
+
+if (!requiredByDateInput ||
+    !requiredByDateInput.value) {
+
+    alert(
+        "Please select when you need your order by."
+    );
+
+    return;
+
+}
+
+
+if (
+    requiredByDateInput.value <
+    requiredByDateInput.min
+) {
+
+    alert(
+        `Please select a date on or after ${formatDate(
+            new Date(requiredByDateInput.min + "T00:00:00")
+        )}.`
+    );
+
+    requiredByDateInput.focus();
+
+    return;
+
+}
+
             const customerName =
     document.getElementById("customerName").value.trim();
 
@@ -686,6 +1040,9 @@ const customerEmail =
 
 const customerPhone =
     document.getElementById("customerPhone").value.trim();
+
+    const requiredByDate =
+    document.getElementById("requiredByDate").value;
 
 const selectedDeliveryMethod =
     document.querySelector(
@@ -769,17 +1126,38 @@ if (currentUser) {
                 customerEmail:
                     customerEmail,
 
-                customerPhone:
+                customerName:
+
+    customerName,
+
+customerEmail:
+
+    customerEmail,
+
+customerPhone:
+
     customerPhone,
 
+requiredByDate:
+
+    requiredByDate,
+
 deliveryMethod:
+
     selectedDeliveryMethod,
 
 deliveryAddress:
+
     deliveryAddress,
 
 items:
+
     cart
+
+
+
+
+    
             })
         }
     );
@@ -979,6 +1357,8 @@ updateCartButton();
 renderOrderSummary();
 
 updateDeliveryAddressVisibility();
+
+updateLeadTimeInformation();
 
 loadShippingSettings();
 

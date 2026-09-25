@@ -215,6 +215,11 @@ const customerPhone =
             ?.stringValue ||
         "collection";
 
+        const requiredByDate =
+    fields.requiredByDate
+        ?.stringValue ||
+    "";
+
 
     const deliveryFee =
         Number(
@@ -550,6 +555,22 @@ const customerPhone =
 
             </div>
 
+            ${requiredByDate ? `
+
+    <div class="order-confirmation-summary-row">
+
+        <span>
+            Required By
+        </span>
+
+        <strong>
+            ${formatConfirmationDate(requiredByDate)}
+        </strong>
+
+    </div>
+
+` : ""}
+
 
             <div class="order-confirmation-summary-row">
 
@@ -713,6 +734,42 @@ function parseFirestoreItems(
 
             };
 
+        }
+    );
+
+}
+
+// =====================================
+// Format Confirmation Date
+// =====================================
+
+function formatConfirmationDate(dateString) {
+
+    if (!dateString) {
+
+        return "";
+
+    }
+
+
+    const date = new Date(
+        dateString + "T00:00:00"
+    );
+
+
+    if (Number.isNaN(date.getTime())) {
+
+        return dateString;
+
+    }
+
+
+    return date.toLocaleDateString(
+        "en-ZA",
+        {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
         }
     );
 

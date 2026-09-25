@@ -29,21 +29,80 @@
          Header
     ====================================== -->
 
-    <header class="site-header">
+    <!-- =====================================
+     Announcement Bar
+====================================== -->
 
-        <div class="logo">
+<div class="top-bar">
 
-            <a href="index.html">
-                3D Contour
-            </a>
+    <div class="top-bar-left">
 
-        </div>
+        <span>
+            🇿🇦 Proudly 3D Printed in South Africa
+        </span>
+
+    </div>
+
+
+    <div class="top-bar-center">
+
+        <span>
+            Custom Designs • Made Just For You
+        </span>
+
+    </div>
+
+
+    <div class="top-bar-right">
+
+        <a href="faq.html">
+            FAQ
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================
+     Main Store Header
+====================================== -->
+
+<header class="site-header">
+
+    <div class="header-container">
+
+
+        <a
+    href="store.html"
+    class="logo"
+>
+
+            <span class="logo-mark">
+                3D
+            </span>
+
+            CONTOUR
+
+        </a>
 
 
         <nav class="main-nav">
 
-            <a href="index.html">
+            <a href="store.html">
                 Home
+            </a>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="contact.html">
+                Contact
             </a>
 
             <a href="shop.html">
@@ -54,30 +113,31 @@
                 Custom Printing
             </a>
 
-            <a href="about.html">
-                About Us
-            </a>
-
-            <a href="#">
-                Contact
-            </a>
-
         </nav>
 
 
         <div class="header-actions">
 
-            <button id="accountButton">
+            <button
+                id="accountButton"
+                type="button"
+            >
                 Account
             </button>
 
-            <button id="cartButton">
-                Cart
+
+            <button
+                id="cartButton"
+                type="button"
+            >
+                Cart (0)
             </button>
 
         </div>
 
-    </header>
+    </div>
+
+</header>
 
 
 
@@ -156,7 +216,80 @@
                         required
                     >
 
+<!-- =====================================
+     Order Required Date
+====================================== -->
 
+<section class="order-date-section">
+
+    <h3>
+        When Do You Need Your Order?
+    </h3>
+
+    <p class="checkout-help-text">
+        Please select the date you need your order by.
+        Your available date is calculated using the production
+        time required for your order and the selected delivery method.
+    </p>
+
+
+    <div class="lead-time-information">
+
+        <div class="lead-time-row">
+            <span>
+                Production time
+            </span>
+
+            <strong id="productionLeadTime">
+                Calculating...
+            </strong>
+        </div>
+
+
+        <div class="lead-time-row">
+            <span>
+                Delivery time
+            </span>
+
+            <strong id="deliveryLeadTime">
+                Calculating...
+            </strong>
+        </div>
+
+
+        <div class="lead-time-row lead-time-earliest">
+
+            <span>
+                Earliest available date
+            </span>
+
+            <strong id="earliestAvailableDate">
+                Calculating...
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <label for="requiredByDate">
+        Required By Date
+    </label>
+
+    <input
+        type="date"
+        id="requiredByDate"
+        required
+    >
+
+    <p
+        id="requiredByDateHelp"
+        class="checkout-help-text"
+    >
+        Please select a date on or after the earliest available date.
+    </p>
+
+</section>
 
                     <!-- =====================================
                          Delivery Method
