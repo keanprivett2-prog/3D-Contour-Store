@@ -1056,24 +1056,57 @@ const selectedDeliveryMethod =
 
 let deliveryAddress = null;
 
-if (selectedDeliveryMethod === "pudo-locker-address") {
+if (
+    selectedDeliveryMethod ===
+    "pudo-locker-locker"
+) {
 
     deliveryAddress = {
+
+        lockerAddress:
+            document.getElementById(
+                "pudoLockerAddress"
+            ).value.trim()
+
+    };
+
+}
+
+
+else if (
+    selectedDeliveryMethod ===
+    "pudo-locker-address"
+) {
+
+    deliveryAddress = {
+
         streetAddress:
-            document.getElementById("streetAddress").value.trim(),
+            document.getElementById(
+                "streetAddress"
+            ).value.trim(),
 
         suburb:
-            document.getElementById("suburb").value.trim(),
+            document.getElementById(
+                "suburb"
+            ).value.trim(),
 
         city:
-            document.getElementById("city").value.trim(),
+            document.getElementById(
+                "city"
+            ).value.trim(),
 
         province:
-            document.getElementById("province").value,
+            document.getElementById(
+                "province"
+            ).value,
 
         postalCode:
-            document.getElementById("postalCode").value.trim()
+            document.getElementById(
+                "postalCode"
+            ).value.trim()
+
     };
+
 }
 
     try {

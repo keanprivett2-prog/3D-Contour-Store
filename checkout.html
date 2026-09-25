@@ -74,21 +74,16 @@
 
 <header class="site-header">
 
-    <div class="header-container">
+    <div class="main-header">
 
+        <div class="logo">
 
-        <a
-    href="store.html"
-    class="logo"
->
+            <a href="store.html">
+                <span class="logo-3d">3D</span>
+                <span class="logo-contour">CONTOUR</span>
+            </a>
 
-            <span class="logo-mark">
-                3D
-            </span>
-
-            CONTOUR
-
-        </a>
+        </div>
 
 
         <nav class="main-nav">
@@ -391,67 +386,54 @@
                     ====================================== -->
 
                     <div
-                        class="pudo-locker-section"
-                        id="pudoLockerSection"
-                        hidden
-                    >
+    class="pudo-locker-section"
+    id="pudoLockerSection"
+    hidden
+>
+
+    <h3>
+        PUDO Locker Address
+    </h3>
 
 
-                        <h3>
-                            Select PUDO Locker
-                        </h3>
+    <p class="checkout-help-text">
+
+        Enter the full address of the PUDO locker
+        where you would like your order delivered.
+
+    </p>
 
 
-                        <p class="checkout-help-text">
+    <label for="pudoLockerAddress">
 
-                            Choose the PUDO locker where you would like your order delivered.
+        PUDO Locker Address
 
-                        </p>
-
-
-                        <label for="pudoLockerSearch">
-
-                            Search for a PUDO locker
-
-                        </label>
+    </label>
 
 
-                        <input
-                            type="text"
-                            id="pudoLockerSearch"
-                            placeholder="Search by suburb, city or postal code"
-                            autocomplete="off"
-                        >
+    <textarea
+        id="pudoLockerAddress"
+        rows="4"
+        placeholder="Enter the full PUDO locker address"
+        required
+    ></textarea>
 
 
-                        <label for="pudoLockerSelect">
+    <p class="checkout-help-text">
 
-                            Destination PUDO Locker
+        Can't find your locker address?
+        
+        <a
+            href="https://thecourierguy.co.za/locations"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Click here
+        </a>
 
-                        </label>
+    </p>
 
-
-                        <select
-                            id="pudoLockerSelect"
-                        >
-
-                            <option value="">
-
-                                Select a PUDO locker
-
-                            </option>
-
-                        </select>
-
-
-                        <p
-                            id="pudoLockerStatus"
-                            class="pudo-status-message"
-                            hidden
-                        ></p>
-
-
-                    </div>
+</div>
 
 
 

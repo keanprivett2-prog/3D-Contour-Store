@@ -211,9 +211,9 @@ const customerPhone =
 
 
     const deliveryMethod =
-        fields.deliveryMethod
-            ?.stringValue ||
-        "collection";
+    fields.deliveryMethod
+        ?.stringValue ||
+    "";
 
         const requiredByDate =
     fields.requiredByDate
@@ -265,8 +265,12 @@ const customerPhone =
 
     if (
     deliveryMethod ===
-    "pudo-locker-address"
+    "pudo-locker-locker"
 ) {
+
+    deliveryLabel =
+        "PUDO Locker → Locker";
+
 
     const deliveryAddress =
         fields.deliveryAddress
@@ -275,32 +279,8 @@ const customerPhone =
         {};
 
 
-    const streetAddress =
-        deliveryAddress.streetAddress
-            ?.stringValue ||
-        "";
-
-
-    const suburb =
-        deliveryAddress.suburb
-            ?.stringValue ||
-        "";
-
-
-    const city =
-        deliveryAddress.city
-            ?.stringValue ||
-        "";
-
-
-    const province =
-        deliveryAddress.province
-            ?.stringValue ||
-        "";
-
-
-    const postalCode =
-        deliveryAddress.postalCode
+    const lockerAddress =
+        deliveryAddress.lockerAddress
             ?.stringValue ||
         "";
 
@@ -310,38 +290,14 @@ const customerPhone =
         <div class="order-confirmation-info-block">
 
             <h3>
-                Delivery Address
+                PUDO Locker Address
             </h3>
 
 
             <p>
 
                 ${escapeHTML(
-                    streetAddress
-                )}
-
-                <br>
-
-                ${escapeHTML(
-                    suburb
-                )}
-
-                <br>
-
-                ${escapeHTML(
-                    city
-                )}
-
-                <br>
-
-                ${escapeHTML(
-                    province
-                )}
-
-                <br>
-
-                ${escapeHTML(
-                    postalCode
+                    lockerAddress
                 )}
 
             </p>
