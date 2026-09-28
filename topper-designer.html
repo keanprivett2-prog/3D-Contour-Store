@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Cake Topper Designer | 3D Contour
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <!-- =====================================
+     Cake Topper Designer Fonts
+====================================== -->
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alex+Brush&family=Alfa+Slab+One&family=Allura&family=Anton&family=Archivo+Black&family=Baloo+2:wght@400;600;700;800&family=Bangers&family=Bebas+Neue&family=Black+Han+Sans&family=Bubblegum+Sans&family=Caveat:wght@400;500;600;700&family=Chewy&family=Concert+One&family=Courgette&family=Dancing+Script:wght@400;500;600;700&family=Fredoka:wght@300;400;500;600;700&family=Great+Vibes&family=Homemade+Apple&family=Italianno&family=Kaushan+Script&family=League+Spartan:wght@400;500;600;700;800;900&family=Lilita+One&family=Lobster&family=Montserrat:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&family=Parisienne&family=Permanent+Marker&family=Pinyon+Script&family=Poppins:wght@400;500;600;700;800;900&family=Raleway:wght@400;500;600;700;800;900&family=Russo+One&family=Sacramento&family=Satisfy&family=Tangerine:wght@400;700&display=swap"
+    rel="stylesheet"
+>
+>
+
+    <link
+        rel="stylesheet"
+        href="topper-designer.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         Announcement Bar
+    ====================================== -->
+
+    <header class="site-header">
+
+        <div class="top-bar">
+
+            <div class="top-bar-left">
+
+                <span>
+                    🇿🇦 Proudly 3D Printed in South Africa
+                </span>
+
+            </div>
+
+
+            <div class="top-bar-center">
+
+                <span>
+                    Custom Designs • Made Just For You
+                </span>
+
+            </div>
+
+
+            <div class="top-bar-right">
+
+                <a href="faq.html">
+                    FAQ
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             Main Store Header
+        ====================================== -->
+
+        <div class="main-header">
+
+            <div class="logo">
+
+                <a href="store.html">
+
+                    <span class="logo-3d">
+                        3D
+                    </span>
+
+                    <span class="logo-contour">
+                        CONTOUR
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <nav class="main-nav">
+
+                <a href="store.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a href="shop.html">
+                    Shop
+                </a>
+
+                <a
+                    href="topper-designer.html"
+                    class="active"
+                >
+                    Cake Topper Designer
+                </a>
+
+                <a href="custom-printing.html">
+                    Custom Printing
+                </a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <button
+                    id="accountButton"
+                    class="icon-button"
+                    aria-label="Account"
+                    type="button"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="21"
+                        height="21"
+                        aria-hidden="true"
+                    >
+
+                        <circle
+                            cx="12"
+                            cy="8"
+                            r="4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        ></circle>
+
+                        <path
+                            d="M4.5 21c.7-4.1 3.2-6.5 7.5-6.5s6.8 2.4 7.5 6.5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        ></path>
+
+                    </svg>
+
+                </button>
+
+
+                <button
+                    id="cartButton"
+                    class="cart-button"
+                    type="button"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H6"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        ></path>
+
+                        <circle
+                            cx="10"
+                            cy="20"
+                            r="1.4"
+                            fill="currentColor"
+                        ></circle>
+
+                        <circle
+                            cx="18"
+                            cy="20"
+                            r="1.4"
+                            fill="currentColor"
+                        ></circle>
+
+                    </svg>
+
+                    <span>
+                        Cart (0)
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         Designer
+    ====================================== -->
+
+    <main class="topper-designer-page">
+
+
+        <section class="designer-hero">
+
+            <p class="designer-eyebrow">
+                CREATE YOUR OWN
+            </p>
+
+            <h1>
+                Live Cake Topper Designer
+            </h1>
+
+            <p class="designer-intro">
+
+                Design your own personalised cake topper
+                and see your creation come to life.
+
+            </p>
+
+        </section>
+
+
+
+        <section class="designer-workspace">
+
+
+            <!-- =================================
+                 Controls
+            ================================== -->
+
+            <aside class="designer-controls">
+
+
+                <div class="designer-card">
+
+                    <h2>
+                        Your Design
+                    </h2>
+
+
+                    <div class="designer-field">
+
+                        <label for="topperText">
+                            Topper Text
+                        </label>
+
+                        <input
+                            type="text"
+                            id="topperText"
+                            placeholder="Happy Birthday"
+                            value="Happy Birthday"
+                            maxlength="60"
+                        >
+
+                    </div>
+
+
+                    <div class="designer-field">
+
+                        <label for="fontSelect">
+                            Font
+                        </label>
+
+                        <select id="fontSelect">
+
+    <!-- =================================
+         Elegant / Wedding
+    ================================== -->
+
+    <optgroup label="Elegant & Wedding">
+
+        <option value="Great Vibes">
+            Great Vibes
+        </option>
+
+        <option value="Allura">
+            Allura
+        </option>
+
+        <option value="Alex Brush">
+            Alex Brush
+        </option>
+
+        <option value="Parisienne">
+            Parisienne
+        </option>
+
+        <option value="Sacramento">
+            Sacramento
+        </option>
+
+        <option value="Pinyon Script">
+            Pinyon Script
+        </option>
+
+        <option value="Tangerine">
+            Tangerine
+        </option>
+
+        <option value="Italianno">
+            Italianno
+        </option>
+
+    </optgroup>
+
+
+    <!-- =================================
+         Handwritten / Script
+    ================================== -->
+
+    <optgroup label="Handwritten & Script">
+
+        <option value="Dancing Script">
+            Dancing Script
+        </option>
+
+        <option value="Satisfy">
+            Satisfy
+        </option>
+
+        <option value="Kaushan Script">
+            Kaushan Script
+        </option>
+
+        <option value="Courgette">
+            Courgette
+        </option>
+
+        <option value="Lobster">
+            Lobster
+        </option>
+
+        <option value="Caveat">
+            Caveat
+        </option>
+
+        <option value="Homemade Apple">
+            Homemade Apple
+        </option>
+
+    </optgroup>
+
+
+    <!-- =================================
+         Fun / Birthday
+    ================================== -->
+
+    <optgroup label="Fun & Birthday">
+
+        <option value="Baloo 2">
+            Baloo 2
+        </option>
+
+        <option value="Fredoka">
+            Fredoka
+        </option>
+
+        <option value="Lilita One">
+            Lilita One
+        </option>
+
+        <option value="Luckiest Guy">
+            Luckiest Guy
+        </option>
+
+        <option value="Chewy">
+            Chewy
+        </option>
+
+        <option value="Bubblegum Sans">
+            Bubblegum Sans
+        </option>
+
+        <option value="Concert One">
+            Concert One
+        </option>
+
+    </optgroup>
+
+
+    <!-- =================================
+         Modern / Clean
+    ================================== -->
+
+    <optgroup label="Modern & Clean">
+
+        <option value="Montserrat">
+            Montserrat
+        </option>
+
+        <option value="Poppins">
+            Poppins
+        </option>
+
+        <option value="Raleway">
+            Raleway
+        </option>
+
+        <option value="Oswald">
+            Oswald
+        </option>
+
+        <option value="Bebas Neue">
+            Bebas Neue
+        </option>
+
+        <option value="League Spartan">
+            League Spartan
+        </option>
+
+        <option value="Archivo Black">
+            Archivo Black
+        </option>
+
+    </optgroup>
+
+
+    <!-- =================================
+         Bold / Statement
+    ================================== -->
+
+    <optgroup label="Bold & Statement">
+
+        <option value="Anton">
+            Anton
+        </option>
+
+        <option value="Bangers">
+            Bangers
+        </option>
+
+        <option value="Abril Fatface">
+            Abril Fatface
+        </option>
+
+        <option value="Alfa Slab One">
+            Alfa Slab One
+        </option>
+
+        <option value="Russo One">
+            Russo One
+        </option>
+
+        <option value="Black Han Sans">
+            Black Han Sans
+        </option>
+
+        <option value="Permanent Marker">
+            Permanent Marker
+        </option>
+
+    </optgroup>
+
+
+    <!-- =================================
+         Classic
+    ================================== -->
+
+    <optgroup label="Classic">
+
+        <option value="Arial">
+            Arial
+        </option>
+
+        <option value="Georgia">
+            Georgia
+        </option>
+
+        <option value="Trebuchet MS">
+            Trebuchet MS
+        </option>
+
+        <option value="Verdana">
+            Verdana
+        </option>
+
+    </optgroup>
+
+</select>
+
+                    </div>
+
+
+                    <div class="designer-field">
+
+                        <label for="fontSize">
+                            Text Size
+                        </label>
+
+                        <input
+                            type="range"
+                            id="fontSize"
+                            min="40"
+                            max="180"
+                            value="90"
+                        >
+
+                        <span id="fontSizeValue">
+                            90
+                        </span>
+
+                    </div>
+
+
+                    <div class="designer-field">
+
+                        <label for="topperWidth">
+                            Topper Width
+                        </label>
+
+                        <input
+                            type="range"
+                            id="topperWidth"
+                            min="80"
+                            max="300"
+                            value="180"
+                        >
+
+                        <span id="topperWidthValue">
+                            180 mm
+                        </span>
+
+                    </div>
+
+
+                    <div class="designer-field">
+
+                        <label for="offsetSize">
+                            Offset / Border
+                        </label>
+
+                        <input
+                            type="range"
+                            id="offsetSize"
+                            min="0"
+                            max="10"
+                            value="3"
+                        >
+
+                        <span id="offsetSizeValue">
+                            3 mm
+                        </span>
+
+                    </div>
+
+                    <div class="designer-field">
+
+    <label for="letterSpacing">
+        Letter Spacing
+    </label>
+
+
+    <input
+        type="range"
+        id="letterSpacing"
+        min="-5"
+        max="15"
+        step="0.5"
+        value="0"
+    >
+
+
+    <span id="letterSpacingValue">
+        0 px
+    </span>
+
+
+    <small class="designer-help-text">
+
+        Adjust the space between letters.
+
+    </small>
+
+</div>
+
+
+                    <div class="designer-field">
+
+                        <label>
+                            Stick
+                        </label>
+
+
+                        <div class="designer-toggle">
+
+                            <label>
+
+                                <input
+                                    type="radio"
+                                    name="stickOption"
+                                    value="yes"
+                                    checked
+                                >
+
+                                Yes
+
+                            </label>
+
+
+                            <label>
+
+                                <input
+                                    type="radio"
+                                    name="stickOption"
+                                    value="no"
+                                >
+
+                                No
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <!-- =================================
+     Printability & Connections
+================================== -->
+
+<div class="designer-section-divider">
+
+    <h3>
+        Printability & Connections
+    </h3>
+
+    <p>
+        Make your design stronger and easier to 3D print.
+    </p>
+
+</div>
+
+
+<div class="designer-field">
+
+    <label>
+        Connect Floating Details
+    </label>
+
+
+    <div class="designer-toggle">
+
+        <label>
+
+            <input
+                type="radio"
+                name="connectFloatingDetails"
+                value="yes"
+                checked
+            >
+
+            Yes
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="radio"
+                name="connectFloatingDetails"
+                value="no"
+            >
+
+            No
+
+        </label>
+
+    </div>
+
+
+    <small class="designer-help-text">
+
+        Automatically connect small floating details,
+        such as the dot above an "i" or "j".
+
+    </small>
+
+</div>
+
+
+<div class="designer-field">
+
+    <label for="connectionThickness">
+
+        Connection Thickness
+
+    </label>
+
+
+    <input
+        type="range"
+        id="connectionThickness"
+        min="0.5"
+        max="1.5"
+        step="0.1"
+        value="0.5"
+    >
+
+
+    <span id="connectionThicknessValue">
+        0.5 mm
+    </span>
+
+
+    <small class="designer-help-text">
+
+        Thicker connections create stronger
+        printable bridges.
+
+    </small>
+
+</div>
+
+
+                </div>
+
+
+            </aside>
+
+
+
+            <!-- =================================
+                 Preview
+            ================================== -->
+
+            <section class="designer-preview">
+
+
+                <div class="preview-header">
+
+                    <div>
+
+                        <p>
+                            LIVE PREVIEW
+                        </p>
+
+                        <h2>
+                            Your Cake Topper
+                        </h2>
+
+                    </div>
+
+
+                    <span class="preview-status">
+                        Free Design
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="preview-stage"
+                    id="previewStage"
+                >
+
+                    <div
+    class="topper-preview-wrapper"
+>
+
+    <div
+        id="topperPreviewOffset"
+        class="topper-preview-offset"
+    ></div>
+
+
+    <div
+        id="topperPreview"
+        class="topper-preview"
+    >
+        Happy Birthday
+    </div>
+
+</div>
+                </div>
+
+
+                <div class="preview-info">
+
+                    <div>
+
+                        <span>
+                            Width
+                        </span>
+
+                        <strong id="previewWidth">
+                            180 mm
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Stick
+                        </span>
+
+                        <strong id="previewStick">
+                            Yes
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Offset
+                        </span>
+
+                        <strong id="previewOffset">
+                            3 mm
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+    <span>
+        Connections
+    </span>
+
+    <strong id="previewConnection">
+        0.5 mm
+    </strong>
+
+</div>
+
+                </div>
+
+
+            </section>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             Purchase Options
+        ====================================== -->
+
+        <section class="designer-options">
+
+
+            <div class="designer-option-card">
+
+                <div class="option-icon">
+                    🖨️
+                </div>
+
+                <p class="option-label">
+                    HAVE US PRINT IT
+                </p>
+
+                <h2>
+                    Print My Topper
+                </h2>
+
+                <p>
+
+                    We'll manufacture your custom
+                    cake topper and prepare it for
+                    delivery or collection.
+
+                </p>
+
+
+                <div class="option-price">
+
+                    Price calculated from your design
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="printTopperButton"
+                    class="designer-primary-button"
+                >
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+
+
+            <div class="designer-option-card">
+
+                <div class="option-icon">
+                    💾
+                </div>
+
+                <p class="option-label">
+                    PRINT IT YOURSELF
+                </p>
+
+                <h2>
+                    Download STL
+                </h2>
+
+                <p>
+
+                    Design your topper for free.
+                    Purchase the STL download and
+                    print it on your own 3D printer.
+
+                </p>
+
+
+                <div class="option-price">
+
+                    STL download price shown at checkout
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="downloadStlButton"
+                    class="designer-secondary-button"
+                >
+
+                    Purchase STL
+
+                </button>
+
+
+                <small>
+
+                    STL download becomes available
+                    after successful payment.
+
+                </small>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================
+         Footer
+    ====================================== -->
+
+    <footer class="site-footer">
+
+        <div>
+
+            <h3>
+                3D Contour
+            </h3>
+
+            <p>
+                Custom 3D printing and cake decorating products.
+            </p>
+
+        </div>
+
+
+        <p>
+
+            &copy;
+            <span id="currentYear"></span>
+            3D Contour.
+            All rights reserved.
+
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+    <script src="maintenance.js"></script>
+
+    <script src="topper-designer.js"></script>
+
+</body>
+
+</html>
