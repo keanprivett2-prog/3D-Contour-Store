@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Lead Time Settings | 3D Contour
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         Header
+    ====================================== -->
+
+    <header class="site-header">
+
+
+        <div class="logo">
+
+            <h1>
+                3D Contour Admin
+            </h1>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <button
+                id="backToDashboardButton"
+            >
+                Dashboard
+            </button>
+
+
+            <button
+                id="logoutButton"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         Main
+    ====================================== -->
+
+    <main class="admin-dashboard">
+
+
+        <!-- Page Header -->
+
+        <section class="admin-dashboard-header">
+
+
+            <p class="section-label">
+                Store Management
+            </p>
+
+
+            <h2>
+                Lead Time Settings
+            </h2>
+
+
+            <p>
+                Manage the production and delivery
+                lead times used by your store.
+            </p>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             Production Settings
+        ====================================== -->
+
+        <section class="admin-card">
+
+
+            <h3>
+                Production Lead Time
+            </h3>
+
+
+            <p>
+                Set the number of working days required
+                to prepare an order before it is ready
+                for collection or dispatch.
+            </p>
+
+
+            <div class="admin-form-group">
+
+
+                <label for="productionLeadTime">
+
+                    Production Lead Time
+
+                </label>
+
+
+                <div class="admin-input-with-suffix">
+
+
+                    <input
+                        type="number"
+                        id="productionLeadTime"
+                        min="0"
+                        max="30"
+                        step="1"
+                        value="3"
+                    >
+
+
+                    <span>
+                        working days
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             Collection
+        ====================================== -->
+
+        <section class="admin-card">
+
+
+            <h3>
+                Collection
+            </h3>
+
+
+            <p>
+                Set the additional time required before
+                an order can be collected.
+            </p>
+
+
+            <div class="admin-form-group">
+
+
+                <label for="collectionLeadTime">
+
+                    Collection Lead Time
+
+                </label>
+
+
+                <div class="admin-input-with-suffix">
+
+
+                    <input
+                        type="number"
+                        id="collectionLeadTime"
+                        min="0"
+                        max="30"
+                        step="1"
+                        value="0"
+                    >
+
+
+                    <span>
+                        working days
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             PUDO Locker → Locker
+        ====================================== -->
+
+        <section class="admin-card">
+
+
+            <h3>
+                PUDO Locker → Locker
+            </h3>
+
+
+            <p>
+                Set the estimated transit time for
+                deliveries between PUDO lockers.
+            </p>
+
+
+            <div class="admin-form-group">
+
+
+                <label for="pudoLockerLockerLeadTime">
+
+                    PUDO Locker → Locker
+
+                </label>
+
+
+                <div class="admin-input-with-suffix">
+
+
+                    <input
+                        type="number"
+                        id="pudoLockerLockerLeadTime"
+                        min="0"
+                        max="30"
+                        step="1"
+                        value="2"
+                    >
+
+
+                    <span>
+                        working days
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             PUDO Locker → Address
+        ====================================== -->
+
+        <section class="admin-card">
+
+
+            <h3>
+                PUDO Locker → Address
+            </h3>
+
+
+            <p>
+                Set the estimated transit time for
+                deliveries from a PUDO locker to a
+                customer's address.
+            </p>
+
+
+            <div class="admin-form-group">
+
+
+                <label for="pudoLockerAddressLeadTime">
+
+                    PUDO Locker → Address
+
+                </label>
+
+
+                <div class="admin-input-with-suffix">
+
+
+                    <input
+                        type="number"
+                        id="pudoLockerAddressLeadTime"
+                        min="0"
+                        max="30"
+                        step="1"
+                        value="2"
+                    >
+
+
+                    <span>
+                        working days
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             Weekend Settings
+        ====================================== -->
+
+        <section class="admin-card">
+
+
+            <h3>
+                Weekend Handling
+            </h3>
+
+
+            <p>
+                Choose whether Saturdays and Sundays
+                should be excluded when calculating
+                lead times.
+            </p>
+
+
+            <div class="admin-form-group">
+
+
+                <label>
+                    Exclude Weekends
+                </label>
+
+
+                <div class="admin-toggle-row">
+
+
+                    <label class="admin-radio-option">
+
+
+                        <input
+                            type="radio"
+                            name="excludeWeekends"
+                            value="yes"
+                            checked
+                        >
+
+
+                        <span>
+                            Yes
+                        </span>
+
+
+                    </label>
+
+
+                    <label class="admin-radio-option">
+
+
+                        <input
+                            type="radio"
+                            name="excludeWeekends"
+                            value="no"
+                        >
+
+
+                        <span>
+                            No
+                        </span>
+
+
+                    </label>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             Save
+        ====================================== -->
+
+        <section class="admin-card">
+
+
+            <h3>
+                Save Settings
+            </h3>
+
+
+            <p>
+                Save your lead-time settings so they
+                can be used throughout the store.
+            </p>
+
+
+            <button
+                id="saveLeadTimesButton"
+            >
+                Save Lead Time Settings
+            </button>
+
+
+            <p
+                id="leadTimesStatus"
+                class="admin-status-message"
+            >
+            </p>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         JavaScript
+    ====================================== -->
+
+    <script
+        type="module"
+        src="admin-lead-times.js"
+    ></script>
+
+
+</body>
+
+</html>

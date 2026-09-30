@@ -133,13 +133,7 @@
                     Shop
                 </a>
 
-                <a
-                    href="topper-designer.html"
-                    class="active"
-                >
-                    Cake Topper Designer
-                </a>
-
+                
                 <a href="custom-printing.html">
                     Custom Printing
                 </a>
@@ -875,6 +869,238 @@
 
 
             </section>
+
+            <!-- =================================
+     Element Properties
+================================== -->
+
+<aside class="designer-properties">
+
+    <div class="designer-card">
+
+        <p class="properties-eyebrow">
+            SELECTED ELEMENT
+        </p>
+
+        <h2>
+            Element Properties
+        </h2>
+
+
+        <!-- =================================
+             Selected Element
+        ================================== -->
+
+        <div
+            id="selectedElementEmpty"
+            class="properties-empty"
+        >
+
+            <div class="properties-empty-icon">
+                ↖
+            </div>
+
+            <strong>
+                Nothing selected
+            </strong>
+
+            <p>
+                Click a letter or design element
+                on the canvas to edit it.
+            </p>
+
+        </div>
+
+
+        <!-- =================================
+             Selected Element Controls
+        ================================== -->
+
+        <div
+            id="selectedElementControls"
+            class="properties-controls"
+            hidden
+        >
+
+            <div class="selected-element-name">
+
+                <span>
+                    Selected
+                </span>
+
+                <strong id="selectedElementLabel">
+                    Letter
+                </strong>
+
+            </div>
+
+
+            <!-- Position -->
+
+            <div class="properties-group">
+
+                <h3>
+                    Position
+                </h3>
+
+
+                <div class="properties-grid">
+
+                    <div class="properties-field">
+
+                        <label for="elementPositionX">
+                            X
+                        </label>
+
+                        <input
+                            type="number"
+                            id="elementPositionX"
+                            value="0"
+                            step="0.1"
+                        >
+
+                        <span>
+                            mm
+                        </span>
+
+                    </div>
+
+
+                    <div class="properties-field">
+
+                        <label for="elementPositionY">
+                            Y
+                        </label>
+
+                        <input
+                            type="number"
+                            id="elementPositionY"
+                            value="0"
+                            step="0.1"
+                        >
+
+                        <span>
+                            mm
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Rotation -->
+
+            <div class="properties-group">
+
+                <h3>
+                    Rotation
+                </h3>
+
+                <div class="properties-slider-row">
+
+                    <input
+                        type="range"
+                        id="elementRotation"
+                        min="-180"
+                        max="180"
+                        step="1"
+                        value="0"
+                    >
+
+                    <strong id="elementRotationValue">
+                        0°
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Size -->
+
+            <div class="properties-group">
+
+                <h3>
+                    Size
+                </h3>
+
+
+                <div class="properties-grid">
+
+                    <div class="properties-field">
+
+                        <label for="elementWidth">
+                            Width
+                        </label>
+
+                        <input
+                            type="number"
+                            id="elementWidth"
+                            value="0"
+                            step="0.1"
+                        >
+
+                        <span>
+                            mm
+                        </span>
+
+                    </div>
+
+
+                    <div class="properties-field">
+
+                        <label for="elementHeight">
+                            Height
+                        </label>
+
+                        <input
+                            type="number"
+                            id="elementHeight"
+                            value="0"
+                            step="0.1"
+                        >
+
+                        <span>
+                            mm
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Actions -->
+
+            <div class="properties-actions">
+
+                <button
+                    type="button"
+                    id="duplicateElementButton"
+                    class="designer-secondary-button"
+                >
+                    Duplicate
+                </button>
+
+
+                <button
+                    type="button"
+                    id="deleteElementButton"
+                    class="designer-danger-button"
+                >
+                    Delete
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>
 
 
         </section>

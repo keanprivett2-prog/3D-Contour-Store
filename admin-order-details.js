@@ -36,6 +36,20 @@ const orderDetailsSubtitle =
         "printInvoiceButton"
     );
 
+    // =====================================
+// Payment Status
+// =====================================
+
+const paymentStatusSelect =
+    document.getElementById(
+        "paymentStatusSelect"
+    );
+
+const paymentStatusMessage =
+    document.getElementById(
+        "paymentStatusMessage"
+    );
+
     const imageLightbox =
     document.getElementById("imageLightbox");
 
@@ -214,6 +228,18 @@ async function loadOrderDetails() {
             orderSnapshot.data();
 
             currentOrder = order;
+
+            // =====================================
+// Load Payment Status
+// =====================================
+
+if (paymentStatusSelect) {
+
+    paymentStatusSelect.value =
+        order.paymentStatus ||
+        "Pending";
+
+}
 
         console.log(
             "Loaded order:",
@@ -637,6 +663,82 @@ setTimeout(
             orderStatusSelect.disabled =
                 false;
         }
+    }
+);
+
+// =====================================
+// Update Payment Status
+// =====================================
+
+paymentStatusSelect.addEventListener(
+    "change",
+    async function () {
+
+        const newPaymentStatus =
+            paymentStatusSelect.value;
+
+
+        paymentStatusSelect.disabled =
+            true;
+
+
+        paymentStatusMessage.textContent =
+            "Saving...";
+
+
+        try {
+
+            const orderReference =
+                doc(
+                    db,
+                    "orders",
+                    orderId
+                );
+
+
+            await updateDoc(
+                orderReference,
+                {
+                    paymentStatus:
+                        newPaymentStatus
+                }
+            );
+
+
+            // Keep the local order object
+            // up to date as well.
+
+            if (currentOrder) {
+
+                currentOrder.paymentStatus =
+                    newPaymentStatus;
+
+            }
+
+
+            paymentStatusMessage.textContent =
+                "Payment status updated successfully ✓";
+
+
+        } catch (error) {
+
+            console.error(
+                "Unable to update payment status:",
+                error
+            );
+
+
+            paymentStatusMessage.textContent =
+                "Unable to update payment status.";
+
+
+        } finally {
+
+            paymentStatusSelect.disabled =
+                false;
+
+        }
+
     }
 );
 

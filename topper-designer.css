@@ -1,6 +1,6 @@
 /* =====================================
-   3D Contour
-   Live Cake Topper Designer
+   3D CONTOUR
+   Cake Topper Designer
 ====================================== */
 
 
@@ -10,48 +10,67 @@
 
 .topper-designer-page {
 
-    max-width: 1400px;
+    width: 100%;
+
+    max-width: 1600px;
 
     margin: 0 auto;
 
-    padding: 60px 5% 80px;
+    padding: 35px 30px 70px;
+
+    color: #292626;
 
 }
 
 
 /* =====================================
-   Hero
+   Designer Hero
 ====================================== */
 
 .designer-hero {
 
-    text-align: center;
+    display: flex;
 
-    margin-bottom: 45px;
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 24px;
+
+}
+
+
+.designer-hero-content {
+
+    min-width: 0;
 
 }
 
 
 .designer-eyebrow {
 
-    margin-bottom: 10px;
+    margin: 0 0 7px;
 
-    font-size: 12px;
+    color: #d98272;
+
+    font-size: 10px;
 
     font-weight: 800;
 
     letter-spacing: 2px;
 
-    color: var(--color-coral);
+    text-transform: uppercase;
 
 }
 
 
 .designer-hero h1 {
 
-    margin-bottom: 14px;
+    margin: 0 0 8px;
 
-    font-size: 42px;
+    font-size: 32px;
 
     line-height: 1.1;
 
@@ -62,13 +81,67 @@
 
     max-width: 650px;
 
-    margin: 0 auto;
+    margin: 0;
 
-    color: #666;
+    color: #777;
 
-    font-size: 16px;
+    font-size: 13px;
 
-    line-height: 1.7;
+    line-height: 1.6;
+
+}
+
+
+/* =====================================
+   Designer Toolbar
+====================================== */
+
+.designer-toolbar {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+
+}
+
+
+.designer-toolbar-button {
+
+    padding: 9px 13px;
+
+    border: 1px solid #ded8d3;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #444;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+.designer-toolbar-button:hover {
+
+    background: #f7f4f1;
+
+}
+
+
+.designer-toolbar-button:disabled {
+
+    opacity: 0.4;
+
+    cursor: not-allowed;
 
 }
 
@@ -81,9 +154,12 @@
 
     display: grid;
 
-    grid-template-columns: 340px 1fr;
+    grid-template-columns:
+        300px
+        minmax(420px, 1fr)
+        300px;
 
-    gap: 30px;
+    gap: 18px;
 
     align-items: stretch;
 
@@ -91,103 +167,322 @@
 
 
 /* =====================================
-   Controls
+   Sidebars
 ====================================== */
 
-.designer-controls {
+.designer-sidebar {
 
     min-width: 0;
 
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
 }
 
 
-.designer-card {
+.designer-panel {
 
     background: #ffffff;
 
-    border: 1px solid #ece7e2;
+    border: 1px solid #e8e2dd;
 
-    border-radius: 16px;
+    border-radius: 12px;
 
-    padding: 28px;
+    padding: 18px;
 
     box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.06);
+        0 5px 20px rgba(0, 0, 0, 0.045);
 
 }
 
 
-.designer-card h2 {
+.designer-panel-header {
 
-    margin-bottom: 25px;
+    display: flex;
 
-    font-size: 21px;
+    align-items: flex-start;
 
-}
+    justify-content: space-between;
 
-/* =====================================
-   Designer Section Divider
-====================================== */
+    gap: 12px;
 
-.designer-section-divider {
-
-    margin-top: 30px;
-
-    margin-bottom: 22px;
-
-    padding-top: 24px;
-
-    border-top: 1px solid #eee8e3;
+    margin-bottom: 17px;
 
 }
 
 
-.designer-section-divider h3 {
+.designer-panel-header h2 {
 
-    margin-bottom: 6px;
+    margin: 0;
 
     font-size: 15px;
 
+    line-height: 1.2;
+
 }
 
 
-.designer-section-divider p {
+.panel-eyebrow {
 
-    color: #777;
+    margin: 0 0 4px;
 
-    font-size: 12px;
+    color: #d98272;
 
-    line-height: 1.5;
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    text-transform: uppercase;
 
 }
 
 
 /* =====================================
-   Designer Help Text
+   Panel Add Button
 ====================================== */
 
-.designer-help-text {
+.panel-add-button {
 
-    display: block;
+    flex-shrink: 0;
 
-    margin-top: 8px;
+    padding: 7px 9px;
 
-    color: #777;
+    border: 1px solid #ded8d3;
+
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #292626;
+
+    cursor: pointer;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+
+.panel-add-button:hover {
+
+    background: #f8f5f3;
+
+}
+
+
+/* =====================================
+   Elements List
+====================================== */
+
+.elements-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+
+.element-item {
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    gap: 9px;
+
+    padding: 9px;
+
+    border: 1px solid #e7e1dc;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #292626;
+
+    text-align: left;
+
+    cursor: pointer;
+
+}
+
+
+.element-item:hover {
+
+    background: #faf8f6;
+
+}
+
+
+.element-item.active {
+
+    border-color: #d98272;
+
+    background: #fff8f6;
+
+}
+
+
+.element-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 30px;
+
+    height: 30px;
+
+    flex-shrink: 0;
+
+    border-radius: 6px;
+
+    background: #f1ece8;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+}
+
+
+.element-item-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+
+.element-item-info strong {
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
 
     font-size: 11px;
 
-    line-height: 1.5;
+}
+
+
+.element-item-info small {
+
+    color: #999;
+
+    font-size: 9px;
+
+}
+
+
+.element-drag-handle {
+
+    flex-shrink: 0;
+
+    color: #aaa;
+
+    font-size: 14px;
+
+    letter-spacing: -2px;
 
 }
 
 
 /* =====================================
-   Form Fields
+   Add Element Grid
+====================================== */
+
+.add-element-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+}
+
+
+.add-element-tile {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    min-height: 68px;
+
+    border: 1px solid #e5dfda;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #444;
+
+    cursor: pointer;
+
+}
+
+
+.add-element-tile:hover {
+
+    border-color: #d98272;
+
+    background: #fff9f7;
+
+}
+
+
+.add-element-tile span {
+
+    font-size: 18px;
+
+    line-height: 1;
+
+}
+
+
+.add-element-tile strong {
+
+    font-size: 9px;
+
+}
+
+
+/* =====================================
+   Designer Fields
 ====================================== */
 
 .designer-field {
 
-    margin-bottom: 24px;
+    margin-bottom: 17px;
 
 }
 
@@ -203,182 +498,181 @@
 
     display: block;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 
-    font-size: 13px;
+    color: #444;
+
+    font-size: 11px;
 
     font-weight: 700;
-
-    color: #292626;
 
 }
 
 
+.designer-field textarea,
+
 .designer-field input[type="text"],
+
 .designer-field select {
 
     width: 100%;
 
-    padding: 12px 14px;
+    padding: 10px 11px;
 
-    border: 1px solid #ddd5cf;
+    border: 1px solid #ddd6d1;
 
-    border-radius: 9px;
+    border-radius: 7px;
+
+    outline: none;
 
     background: #ffffff;
 
     color: #292626;
 
-    font-size: 14px;
+    font-family: inherit;
 
-    outline: none;
+    font-size: 12px;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
 
 }
 
 
+.designer-field textarea {
+
+    resize: vertical;
+
+    min-height: 70px;
+
+    line-height: 1.5;
+
+}
+
+
+.designer-field textarea:focus,
+
 .designer-field input[type="text"]:focus,
+
 .designer-field select:focus {
 
-    border-color: var(--color-coral);
+    border-color: #d98272;
 
     box-shadow:
-        0 0 0 3px rgba(0, 0, 0, 0.04);
+        0 0 0 3px rgba(217, 130, 114, 0.08);
+
+}
+
+
+.field-label-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.field-label-row label {
+
+    margin: 0;
+
+}
+
+
+.field-label-row span {
+
+    color: #888;
+
+    font-size: 10px;
+
+    font-weight: 700;
 
 }
 
 
 /* =====================================
-   Range Sliders
+   Range Inputs
 ====================================== */
 
 .designer-field input[type="range"] {
 
     width: 100%;
 
+    height: 5px;
+
+    margin: 4px 0;
+
+    accent-color: #d98272;
+
     cursor: pointer;
 
 }
 
 
-.designer-field > span {
+/* =====================================
+   Segmented Controls
+====================================== */
+
+.segmented-control {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 6px;
+
+}
+
+
+.segmented-control label {
+
+    position: relative;
 
     display: block;
 
-    margin-top: 6px;
-
-    font-size: 12px;
-
-    color: #777;
+    margin: 0;
 
 }
 
 
-/* =====================================
-   Stick Toggle
-====================================== */
+.segmented-control input {
 
-.designer-toggle {
+    position: absolute;
 
-    display: flex;
+    opacity: 0;
 
-    gap: 10px;
+    pointer-events: none;
 
 }
 
 
-.designer-toggle label {
+.segmented-control span {
 
     display: flex;
 
     align-items: center;
 
-    gap: 6px;
+    justify-content: center;
 
-    margin: 0;
+    min-height: 36px;
 
-    padding: 9px 14px;
+    border: 1px solid #ddd6d1;
 
-    border: 1px solid #ddd5cf;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-}
-
-
-/* =====================================
-   Preview
-====================================== */
-
-.designer-preview {
-
-    min-width: 0;
+    border-radius: 7px;
 
     background: #ffffff;
 
-    border: 1px solid #ece7e2;
-
-    border-radius: 16px;
-
-    padding: 28px;
-
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.06);
-
-}
-
-
-.preview-header {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    margin-bottom: 22px;
-
-}
-
-
-.preview-header p {
-
-    margin-bottom: 5px;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    color: var(--color-coral);
-
-}
-
-
-.preview-header h2 {
-
-    font-size: 21px;
-
-}
-
-
-.preview-status {
-
-    padding: 7px 12px;
-
-    border-radius: 20px;
-
-    background: #f7f3f0;
-
     color: #666;
+
+    cursor: pointer;
 
     font-size: 11px;
 
@@ -387,13 +681,106 @@
 }
 
 
+.segmented-control input:checked + span {
+
+    border-color: #d98272;
+
+    background: #fff6f3;
+
+    color: #b86454;
+
+}
+
+
 /* =====================================
-   Preview Stage
+   Center Canvas Panel
 ====================================== */
 
-.preview-stage {
+.designer-canvas-panel {
 
-    min-height: 430px;
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border: 1px solid #e8e2dd;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.045);
+
+}
+
+
+/* =====================================
+   Canvas Toolbar
+====================================== */
+
+.canvas-toolbar {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    min-height: 54px;
+
+    padding: 0 15px;
+
+    border-bottom: 1px solid #ebe6e2;
+
+}
+
+
+.canvas-toolbar-left,
+
+.canvas-toolbar-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.canvas-title {
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+}
+
+
+.canvas-status {
+
+    padding: 4px 8px;
+
+    border-radius: 20px;
+
+    background: #f5f1ee;
+
+    color: #888;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+}
+
+
+.canvas-tool-button {
 
     display: flex;
 
@@ -401,43 +788,233 @@
 
     justify-content: center;
 
+    width: 30px;
+
+    height: 30px;
+
+    padding: 0;
+
+    border: 1px solid #ded8d3;
+
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #444;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+}
+
+
+.canvas-tool-button:hover {
+
+    background: #f7f4f1;
+
+}
+
+
+.zoom-value {
+
+    min-width: 42px;
+
+    text-align: center;
+
+    color: #666;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================
+   Main Canvas
+====================================== */
+
+.designer-canvas {
+
+    position: relative;
+
+    flex: 1;
+
+    min-height: 600px;
+
     overflow: hidden;
 
-    padding: 40px;
+    background-color: #f4f2f0;
 
-    border-radius: 14px;
-
-    background:
+    background-image:
         linear-gradient(
-            45deg,
-            #f4f4f4 25%,
-            transparent 25%
+            rgba(255, 255, 255, 0.75) 1px,
+            transparent 1px
         ),
         linear-gradient(
-            -45deg,
-            #f4f4f4 25%,
-            transparent 25%
-        ),
-        linear-gradient(
-            45deg,
-            transparent 75%,
-            #f4f4f4 75%
-        ),
-        linear-gradient(
-            -45deg,
-            transparent 75%,
-            #f4f4f4 75%
+            90deg,
+            rgba(255, 255, 255, 0.75) 1px,
+            transparent 1px
         );
 
-    background-size: 28px 28px;
-
-    background-position:
-        0 0,
-        0 14px,
-        14px -14px,
-        -14px 0;
+    background-size: 25px 25px;
 
 }
+
+
+/* =====================================
+   Rulers
+====================================== */
+
+.canvas-ruler {
+
+    position: absolute;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    opacity: 0.65;
+
+}
+
+
+.canvas-ruler-top {
+
+    top: 0;
+
+    right: 0;
+
+    left: 0;
+
+    height: 18px;
+
+    border-bottom: 1px solid #ddd7d2;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 9px,
+            #aaa 9px,
+            #aaa 10px,
+            transparent 10px,
+            transparent 49px,
+            #888 49px,
+            #888 50px
+        );
+
+}
+
+
+.canvas-ruler-left {
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 18px;
+
+    border-right: 1px solid #ddd7d2;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 9px,
+            #aaa 9px,
+            #aaa 10px,
+            transparent 10px,
+            transparent 49px,
+            #888 49px,
+            #888 50px
+        );
+
+}
+
+
+/* =====================================
+   Topper Canvas Area
+====================================== */
+
+.topper-canvas {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 320px;
+
+    min-height: 320px;
+
+    padding: 50px;
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+.cake-topper-guide {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 85%;
+
+    height: 55%;
+
+    border: 1px dashed rgba(120, 110, 105, 0.22);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    pointer-events: none;
+
+}
+
+
+.cake-topper-guide span {
+
+    position: absolute;
+
+    top: -9px;
+
+    left: 50%;
+
+    padding: 0 7px;
+
+    background: #f4f2f0;
+
+    color: #aaa;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    transform:
+        translateX(-50%);
+
+}
+
 
 /* =====================================
    Topper Preview Wrapper
@@ -453,28 +1030,13 @@
 
     justify-content: center;
 
-}
-
-
-/* =====================================
-   Topper Preview Wrapper
-====================================== */
-
-.topper-preview-wrapper {
-
-    position: relative;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
+    transform-origin: center center;
 
 }
 
 
 /* =====================================
-   Topper Offset / Border
+   Offset Preview
 ====================================== */
 
 .topper-preview-offset {
@@ -485,11 +1047,9 @@
 
     left: 50%;
 
-    transform: translate(-50%, -50%);
+    z-index: 1;
 
     width: max-content;
-
-    pointer-events: none;
 
     color: transparent;
 
@@ -499,7 +1059,10 @@
 
     white-space: nowrap;
 
-    z-index: 1;
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%);
 
     -webkit-text-stroke:
         var(--topper-offset, 0px)
@@ -508,10 +1071,8 @@
 }
 
 
-
-
 /* =====================================
-   Main Topper Text
+   Main Topper Preview
 ====================================== */
 
 .topper-preview {
@@ -520,18 +1081,9 @@
 
     z-index: 2;
 
-}
-
-
-/* =====================================
-   Topper Preview
-====================================== */
-
-.topper-preview {
-
     display: inline-block;
 
-    max-width: 100%;
+    max-width: none;
 
     padding: 20px;
 
@@ -547,27 +1099,24 @@
 
     white-space: nowrap;
 
-        user-select: none;
+    user-select: none;
 
     touch-action: none;
 
     transform-origin: center center;
 
-    transition:
-        font-size 0.15s ease,
-        transform 0.15s ease;
-
 }
 
+
 /* =====================================
-   Individual Topper Letters
+   Individual Letters
 ====================================== */
 
 .topper-letter {
 
-    display: inline-block;
-
     position: relative;
+
+    display: inline-block;
 
     cursor: grab;
 
@@ -587,202 +1136,608 @@
 
 .topper-letter.selected {
 
-    outline: 1px dashed #777;
+    outline: 1px dashed #d98272;
 
-    outline-offset: 4px;
+    outline-offset: 5px;
 
 }
 
 
 /* =====================================
-   Individual Offset Letters
+   Offset Letters
 ====================================== */
 
 .topper-offset-letter {
 
-    display: inline-block;
-
     position: relative;
+
+    display: inline-block;
 
 }
 
 
 /* =====================================
-   Preview Information
+   Canvas Information
 ====================================== */
 
-.preview-info {
+.canvas-information {
 
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(4, 1fr);
 
-    gap: 15px;
-
-    margin-top: 20px;
+    border-top: 1px solid #ebe6e2;
 
 }
 
 
-.preview-info > div {
+.canvas-information > div {
 
-    padding: 15px;
+    padding: 11px 8px;
 
-    border: 1px solid #eee8e3;
+    text-align: center;
 
-    border-radius: 10px;
+    border-right: 1px solid #ebe6e2;
+
+}
+
+
+.canvas-information > div:last-child {
+
+    border-right: 0;
+
+}
+
+
+.canvas-information span {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #999;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+}
+
+
+.canvas-information strong {
+
+    font-size: 10px;
+
+}
+
+
+/* =====================================
+   Right Properties
+====================================== */
+
+.selection-empty {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 210px;
+
+    padding: 25px 15px;
 
     text-align: center;
 
 }
 
 
-.preview-info span {
+.selection-empty-icon {
 
-    display: block;
+    display: flex;
 
-    margin-bottom: 5px;
+    align-items: center;
 
-    font-size: 11px;
+    justify-content: center;
 
-    color: #777;
+    width: 48px;
 
-}
+    height: 48px;
 
+    margin-bottom: 13px;
 
-.preview-info strong {
+    border: 1px solid #e4ded9;
 
-    font-size: 14px;
+    border-radius: 50%;
 
-}
+    color: #999;
 
-
-/* =====================================
-   Purchase Options
-====================================== */
-
-.designer-options {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 30px;
-
-    margin-top: 30px;
+    font-size: 20px;
 
 }
 
 
-.designer-option-card {
+.selection-empty strong {
 
-    padding: 32px;
+    margin-bottom: 6px;
 
-    background: #ffffff;
-
-    border: 1px solid #ece7e2;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.06);
+    font-size: 12px;
 
 }
 
 
-.option-icon {
+.selection-empty p {
 
-    font-size: 30px;
+    max-width: 200px;
 
-    margin-bottom: 15px;
+    margin: 0;
 
-}
+    color: #999;
 
-
-.option-label {
-
-    margin-bottom: 7px;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    color: var(--color-coral);
-
-}
-
-
-.designer-option-card h2 {
-
-    margin-bottom: 10px;
-
-    font-size: 23px;
-
-}
-
-
-.designer-option-card p {
-
-    color: #666;
+    font-size: 10px;
 
     line-height: 1.6;
 
 }
 
 
-.option-price {
+/* =====================================
+   Selected Element
+====================================== */
 
-    margin: 20px 0;
+.selected-element-heading {
 
-    font-size: 14px;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    padding: 10px 11px;
+
+    border-radius: 7px;
+
+    background: #f7f4f2;
+
+}
+
+
+.selected-element-heading span {
+
+    color: #999;
+
+    font-size: 9px;
+
+}
+
+
+.selected-element-heading strong {
+
+    max-width: 145px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 11px;
+
+}
+
+
+/* =====================================
+   Property Sections
+====================================== */
+
+.property-section {
+
+    margin-bottom: 19px;
+
+}
+
+
+.property-section:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+.property-section h3 {
+
+    margin: 0 0 9px;
+
+    color: #555;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+}
+
+
+.property-heading-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 9px;
+
+}
+
+
+.property-heading-row h3 {
+
+    margin: 0;
+
+}
+
+
+.property-heading-row strong {
+
+    color: #888;
+
+    font-size: 10px;
+
+}
+
+
+/* =====================================
+   Property Grid
+====================================== */
+
+.property-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+
+}
+
+
+.property-input {
+
+    position: relative;
+
+}
+
+
+.property-input label {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #888;
+
+    font-size: 9px;
+
+}
+
+
+.property-input input {
+
+    width: 100%;
+
+    padding: 9px 28px 9px 9px;
+
+    border: 1px solid #ddd6d1;
+
+    border-radius: 6px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #292626;
+
+    font-size: 11px;
+
+}
+
+
+.property-input input:focus {
+
+    border-color: #d98272;
+
+}
+
+
+.property-input span {
+
+    position: absolute;
+
+    right: 8px;
+
+    bottom: 9px;
+
+    color: #aaa;
+
+    font-size: 8px;
+
+}
+
+
+/* =====================================
+   Property Range
+====================================== */
+
+.property-section input[type="range"] {
+
+    width: 100%;
+
+    accent-color: #d98272;
+
+}
+
+
+/* =====================================
+   Alignment
+====================================== */
+
+.alignment-buttons {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 6px;
+
+}
+
+
+.alignment-buttons button {
+
+    height: 32px;
+
+    border: 1px solid #ddd6d1;
+
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #555;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+}
+
+
+.alignment-buttons button:hover {
+
+    background: #f8f5f3;
+
+}
+
+
+/* =====================================
+   Property Actions
+====================================== */
+
+.property-actions {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #eee9e5;
+
+}
+
+
+.property-action-button {
+
+    padding: 10px;
+
+    border: 1px solid #ddd6d1;
+
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #444;
+
+    cursor: pointer;
+
+    font-size: 10px;
 
     font-weight: 700;
 
 }
 
 
-/* =====================================
-   Buttons
-====================================== */
+.property-action-button:hover {
 
-.designer-primary-button,
-.designer-secondary-button {
-
-    width: 100%;
-
-    padding: 14px 20px;
-
-    border-radius: 9px;
-
-    font-size: 14px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.2s ease,
-        opacity 0.2s ease;
+    background: #f7f4f1;
 
 }
 
 
-.designer-primary-button {
+.property-action-button.danger {
 
-    border: 1px solid var(--color-coral);
+    border-color: #e4c9c4;
 
-    background: var(--color-coral);
+    color: #b45e50;
+
+}
+
+
+.property-action-button.danger:hover {
+
+    background: #fff5f2;
+
+}
+
+
+/* =====================================
+   Printability
+====================================== */
+
+.printability-panel {
+
+    position: relative;
+
+}
+
+
+.printability-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+
+    background: #f4f1ef;
+
+    color: #888;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+}
+
+
+.printability-message {
+
+    margin-bottom: 10px;
+
+    color: #777;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+}
+
+
+.printability-issues {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+.printability-issue {
+
+    padding: 7px 8px;
+
+    border-radius: 6px;
+
+    background: #fff6f3;
+
+    color: #9b5d51;
+
+    font-size: 9px;
+
+    line-height: 1.4;
+
+}
+
+
+/* =====================================
+   Purchase Panel
+====================================== */
+
+.designer-purchase-panel {
+
+    margin-top: auto;
+
+}
+
+
+.designer-purchase-panel h2 {
+
+    margin: 0 0 14px;
+
+    font-size: 15px;
+
+    line-height: 1.3;
+
+}
+
+
+.designer-purchase-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    width: 100%;
+
+    min-height: 42px;
+
+    margin-bottom: 7px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+
+.designer-purchase-button.primary {
+
+    border: 1px solid #d98272;
+
+    background: #d98272;
 
     color: #ffffff;
 
 }
 
 
-.designer-secondary-button {
+.designer-purchase-button.primary:hover {
+
+    background: #c97161;
+
+}
+
+
+.designer-purchase-button.secondary {
 
     border: 1px solid #292626;
 
@@ -793,25 +1748,105 @@
 }
 
 
-.designer-primary-button:hover,
-.designer-secondary-button:hover {
+.designer-purchase-button.secondary:hover {
 
-    transform: translateY(-1px);
-
-    opacity: 0.9;
+    background: #444;
 
 }
 
 
-.designer-option-card small {
+.purchase-note {
 
     display: block;
 
-    margin-top: 12px;
+    margin-top: 9px;
+
+    color: #999;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+
+    text-align: center;
+
+}
+
+
+/* =====================================
+   Bottom Purchase Information
+====================================== */
+
+.designer-purchase-information {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+    margin-top: 18px;
+
+}
+
+
+.designer-purchase-information > div {
+
+    display: grid;
+
+    grid-template-columns: 38px 1fr;
+
+    column-gap: 10px;
+
+    padding: 16px;
+
+    border: 1px solid #e8e2dd;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+}
+
+
+.designer-purchase-information span {
+
+    grid-row: span 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 36px;
+
+    height: 36px;
+
+    border-radius: 8px;
+
+    background: #f7f2ef;
+
+    font-size: 16px;
+
+}
+
+
+.designer-purchase-information strong {
+
+    align-self: end;
+
+    font-size: 11px;
+
+}
+
+
+.designer-purchase-information p {
+
+    margin: 3px 0 0;
 
     color: #888;
 
-    font-size: 11px;
+    font-size: 9px;
 
     line-height: 1.5;
 
@@ -819,10 +1854,156 @@
 
 
 /* =====================================
-   Responsive
+   Hidden
 ====================================== */
 
-@media (max-width: 900px) {
+[hidden] {
+
+    display: none !important;
+
+}
+
+
+/* =====================================
+   Focus
+====================================== */
+
+button:focus-visible,
+
+input:focus-visible,
+
+textarea:focus-visible,
+
+select:focus-visible {
+
+    outline: 2px solid rgba(217, 130, 114, 0.35);
+
+    outline-offset: 2px;
+
+}
+
+
+/* =====================================
+   Tablet
+====================================== */
+
+@media (max-width: 1200px) {
+
+    .designer-workspace {
+
+        grid-template-columns:
+            270px
+            minmax(360px, 1fr)
+            270px;
+
+        gap: 14px;
+
+    }
+
+
+    .designer-panel {
+
+        padding: 15px;
+
+    }
+
+
+    .topper-designer-page {
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
+    }
+
+}
+
+
+/* =====================================
+   Smaller Tablet
+====================================== */
+
+@media (max-width: 1000px) {
+
+    .designer-workspace {
+
+        grid-template-columns:
+            250px
+            minmax(320px, 1fr);
+
+    }
+
+
+    .designer-right-panel {
+
+        grid-column: 1 / -1;
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr 1fr;
+
+        align-items: start;
+
+    }
+
+
+    .designer-right-panel .designer-panel {
+
+        height: 100%;
+
+    }
+
+
+    .designer-purchase-panel {
+
+        margin-top: 0;
+
+    }
+
+}
+
+
+/* =====================================
+   Mobile
+====================================== */
+
+@media (max-width: 760px) {
+
+    .topper-designer-page {
+
+        padding:
+            25px
+            15px
+            50px;
+
+    }
+
+
+    .designer-hero {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .designer-toolbar {
+
+        width: 100%;
+
+    }
+
+
+    .designer-toolbar-button {
+
+        flex: 1;
+
+    }
+
 
     .designer-workspace {
 
@@ -831,7 +2012,23 @@
     }
 
 
-    .designer-options {
+    .designer-right-panel {
+
+        display: flex;
+
+        flex-direction: column;
+
+    }
+
+
+    .designer-canvas {
+
+        min-height: 500px;
+
+    }
+
+
+    .designer-purchase-information {
 
         grid-template-columns: 1fr;
 
@@ -840,35 +2037,40 @@
 }
 
 
-@media (max-width: 600px) {
+/* =====================================
+   Small Mobile
+====================================== */
 
-    .topper-designer-page {
-
-        padding:
-            40px 20px 60px;
-
-    }
-
+@media (max-width: 500px) {
 
     .designer-hero h1 {
 
-        font-size: 32px;
+        font-size: 27px;
 
     }
 
 
-    .designer-preview {
+    .designer-intro {
 
-        padding: 20px;
+        font-size: 12px;
 
     }
 
 
-    .preview-stage {
+    .designer-canvas {
 
-        min-height: 300px;
+        min-height: 400px;
 
-        padding: 20px;
+    }
+
+
+    .topper-canvas {
+
+        min-width: 250px;
+
+        min-height: 250px;
+
+        padding: 30px;
 
     }
 
@@ -884,9 +2086,31 @@
     }
 
 
-    .preview-info {
+    .canvas-information {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .canvas-information > div:nth-child(2) {
+
+        border-right: 0;
+
+    }
+
+
+    .canvas-information > div:nth-child(-n+2) {
+
+        border-bottom: 1px solid #ebe6e2;
+
+    }
+
+
+    .designer-panel-header {
+
+        flex-direction: row;
 
     }
 

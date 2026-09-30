@@ -191,3 +191,23 @@ manageShippingButton.addEventListener(
 
     }
 );
+
+// =====================================
+// Lead Time Settings
+// =====================================
+
+const manageLeadTimesButton =
+    document.getElementById(
+        "manageLeadTimesButton"
+    );
+
+
+manageLeadTimesButton.addEventListener(
+    "click",
+    function () {
+
+        window.location.href =
+            "admin-lead-times.html";
+
+    }
+);

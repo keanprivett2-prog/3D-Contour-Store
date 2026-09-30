@@ -65,7 +65,7 @@
     
 </div>
 
-        <section
+                <section
             class="admin-order-details-card"
             id="adminOrderDetails"
         >
@@ -73,6 +73,54 @@
             <p>
                 Loading order details...
             </p>
+
+        </section>
+
+
+        <!-- =====================================
+             Payment Status
+        ====================================== -->
+
+        <section class="admin-order-payment-status-card">
+
+            <h3>
+                Payment Status
+            </h3>
+
+            <div class="admin-payment-status-control">
+
+                <label for="paymentStatusSelect">
+                    <strong>
+                        Payment Status:
+                    </strong>
+                </label>
+
+                <select id="paymentStatusSelect">
+
+                    <option value="Pending">
+                        Pending
+                    </option>
+
+                    <option value="Paid">
+                        Paid
+                    </option>
+
+                    <option value="Failed">
+                        Failed
+                    </option>
+
+                    <option value="Refunded">
+                        Refunded
+                    </option>
+
+                </select>
+
+                <span
+                    id="paymentStatusMessage"
+                    class="order-status-save-message"
+                ></span>
+
+            </div>
 
         </section>
 

@@ -6,56 +6,17 @@
 // Production & Delivery Lead Times
 // =====================================
 
-const LEAD_TIME_SETTINGS = {
+let leadTimeSettings = {
 
-    production: [
+    productionLeadTime: 3,
 
-        {
-            maxQuantity: 10,
-            workingDays: 2
-        },
+    collectionLeadTime: 0,
 
-        {
-            maxQuantity: 25,
-            workingDays: 3
-        },
+    pudoLockerLockerLeadTime: 2,
 
-        {
-            maxQuantity: 50,
-            workingDays: 5
-        },
+    pudoLockerAddressLeadTime: 2,
 
-        {
-            maxQuantity: 100,
-            workingDays: 7
-        },
-
-        {
-            maxQuantity: Infinity,
-            workingDays: 10
-        }
-
-    ],
-
-
-    delivery: {
-
-        collection: {
-            minWorkingDays: 0,
-            maxWorkingDays: 0
-        },
-
-        "pudo-locker-locker": {
-            minWorkingDays: 2,
-            maxWorkingDays: 4
-        },
-
-        "pudo-locker-address": {
-            minWorkingDays: 2,
-            maxWorkingDays: 4
-        }
-
-    }
+    excludeWeekends: true
 
 };
 
@@ -152,11 +113,14 @@ function addWorkingDays(startDate, workingDays) {
         // Saturday = 6
         // Sunday = 0
 
-        if (day !== 0 && day !== 6) {
+        if (
+    !leadTimeSettings.excludeWeekends ||
+    (day !== 0 && day !== 6)
+) {
 
-            daysAdded++;
+    daysAdded++;
 
-        }
+}
 
     }
 
@@ -178,44 +142,90 @@ function formatDate(date) {
 }
 
 
-function getProductionLeadTime(quantity) {
+function getProductionLeadTime() {
 
-    const rule =
-
-        LEAD_TIME_SETTINGS.production.find(
-
-            function (rule) {
-
-                return quantity <= rule.maxQuantity;
-
-            }
-
-        );
-
-
-    return rule
-
-        ? rule.workingDays
-
-        : 0;
+    return Number(
+        leadTimeSettings.productionLeadTime
+    ) || 0;
 
 }
 
 
 function getDeliveryLeadTime(deliveryMethod) {
 
-    return (
+    if (
+        deliveryMethod ===
+        "collection"
+    ) {
 
-        LEAD_TIME_SETTINGS.delivery[deliveryMethod]
+        return {
 
-        || {
+            minWorkingDays:
+                Number(
+                    leadTimeSettings.collectionLeadTime
+                ) || 0,
 
-            minWorkingDays: 0,
-            maxWorkingDays: 0
+            maxWorkingDays:
+                Number(
+                    leadTimeSettings.collectionLeadTime
+                ) || 0
 
-        }
+        };
 
-    );
+    }
+
+
+    if (
+        deliveryMethod ===
+        "pudo-locker-locker"
+    ) {
+
+        return {
+
+            minWorkingDays:
+                Number(
+                    leadTimeSettings.pudoLockerLockerLeadTime
+                ) || 0,
+
+            maxWorkingDays:
+                Number(
+                    leadTimeSettings.pudoLockerLockerLeadTime
+                ) || 0
+
+        };
+
+    }
+
+
+    if (
+        deliveryMethod ===
+        "pudo-locker-address"
+    ) {
+
+        return {
+
+            minWorkingDays:
+                Number(
+                    leadTimeSettings.pudoLockerAddressLeadTime
+                ) || 0,
+
+            maxWorkingDays:
+                Number(
+                    leadTimeSettings.pudoLockerAddressLeadTime
+                ) || 0
+
+        };
+
+    }
+
+
+    return {
+
+        minWorkingDays: 0,
+
+        maxWorkingDays: 0
+
+    };
 
 }
 
@@ -501,6 +511,93 @@ async function loadShippingSettings() {
 
         console.error(
             "Unable to load shipping settings:",
+            error
+        );
+
+    }
+
+}
+
+// =====================================
+// Load Lead Time Settings
+// =====================================
+
+async function loadLeadTimeSettings() {
+
+    try {
+
+        const leadTimeReference =
+            doc(
+                db,
+                "storeSettings",
+                "leadTimes"
+            );
+
+
+        const leadTimeSnapshot =
+            await getDoc(
+                leadTimeReference
+            );
+
+
+        if (
+            leadTimeSnapshot.exists()
+        ) {
+
+            const data =
+                leadTimeSnapshot.data();
+
+
+            leadTimeSettings = {
+
+                productionLeadTime:
+                    Number(
+                        data.productionLeadTime
+                    ) || 0,
+
+
+                collectionLeadTime:
+                    Number(
+                        data.collectionLeadTime
+                    ) || 0,
+
+
+                pudoLockerLockerLeadTime:
+                    Number(
+                        data.pudoLockerLockerLeadTime
+                    ) || 0,
+
+
+                pudoLockerAddressLeadTime:
+                    Number(
+                        data.pudoLockerAddressLeadTime
+                    ) || 0,
+
+
+                excludeWeekends:
+                    data.excludeWeekends !== false
+
+            };
+
+
+            console.log(
+                "Lead time settings loaded:",
+                leadTimeSettings
+            );
+
+
+            // Recalculate the checkout
+            // using the Firebase settings.
+
+            updateLeadTimeInformation();
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Unable to load lead time settings:",
             error
         );
 
@@ -1394,6 +1491,8 @@ updateDeliveryAddressVisibility();
 updateLeadTimeInformation();
 
 loadShippingSettings();
+
+loadLeadTimeSettings();
 
 onAuthStateChanged(auth, (user) => {
 
