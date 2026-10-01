@@ -325,6 +325,37 @@ adminOrderDetails.innerHTML = `
     <div class="admin-order-detail-section">
 
         <h3>
+            Order Fulfilment
+        </h3>
+
+        <p>
+            <strong>Required By:</strong>
+            ${
+                order.requiredByDate
+                    ? new Date(
+                        order.requiredByDate + "T00:00:00"
+                    ).toLocaleDateString(
+                        "en-ZA",
+                        {
+                            day: "2-digit",
+                            month: "long",
+                            year: "numeric"
+                        }
+                    )
+                    : "Not specified"
+            }
+        </p>
+
+        <p>
+            <strong>Delivery Method:</strong>
+            ${order.deliveryMethod || "Not specified"}
+        </p>
+
+    </div>
+
+    <div class="admin-order-detail-section">
+
+        <h3>
             Customer
         </h3>
 
@@ -408,6 +439,68 @@ adminOrderDetails.innerHTML = `
     </select>
 
 </div>
+
+        <div class="admin-production-status-control">
+
+            <label for="productionStatusSelect">
+
+                <strong>
+                    Production Status:
+                </strong>
+
+            </label>
+
+            <select id="productionStatusSelect">
+
+                <option
+                    value="Not Started"
+                    ${
+                        order.productionStatus === "Not Started"
+                            || !order.productionStatus
+                            ? "selected"
+                            : ""
+                    }
+                >
+                    Not Started
+                </option>
+
+                <option
+                    value="In Production"
+                    ${
+                        order.productionStatus === "In Production"
+                            ? "selected"
+                            : ""
+                    }
+                >
+                    In Production
+                </option>
+
+                <option
+                    value="Quality Check"
+                    ${
+                        order.productionStatus === "Quality Check"
+                            ? "selected"
+                            : ""
+                    }
+                >
+                    Quality Check
+                </option>
+
+                <option
+                    value="Ready"
+                    ${
+                        order.productionStatus === "Ready"
+                            ? "selected"
+                            : ""
+                    }
+                >
+                    Ready
+                </option>
+
+            </select>
+
+        </div>
+
         <p>
             <strong>Delivery Method:</strong>
             ${order.deliveryMethod || "Unknown"}
@@ -735,6 +828,116 @@ paymentStatusSelect.addEventListener(
         } finally {
 
             paymentStatusSelect.disabled =
+                false;
+
+        }
+
+    }
+);
+
+// =====================================
+// Update Production Status
+// =====================================
+
+adminOrderDetails.addEventListener(
+    "change",
+    async function (event) {
+
+        if (
+            event.target.id !==
+            "productionStatusSelect"
+        ) {
+
+            return;
+
+        }
+
+
+        const productionStatusSelect =
+            event.target;
+
+
+        const newProductionStatus =
+            productionStatusSelect.value;
+
+
+        productionStatusSelect.disabled =
+            true;
+
+
+        try {
+
+            const orderReference =
+                doc(
+                    db,
+                    "orders",
+                    orderId
+                );
+
+
+            await updateDoc(
+                orderReference,
+                {
+                    productionStatus:
+                        newProductionStatus
+                }
+            );
+
+
+            if (currentOrder) {
+
+                currentOrder.productionStatus =
+                    newProductionStatus;
+
+            }
+
+
+            const statusMessage =
+                document.createElement(
+                    "span"
+                );
+
+
+            statusMessage.className =
+                "order-status-save-message";
+
+
+            statusMessage.textContent =
+                "Production status updated successfully ✓";
+
+
+            productionStatusSelect.insertAdjacentElement(
+                "afterend",
+                statusMessage
+            );
+
+
+            setTimeout(
+                function () {
+
+                    statusMessage.remove();
+
+                },
+                2500
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Unable to update production status:",
+                error
+            );
+
+
+            alert(
+                "Unable to update the production status."
+            );
+
+
+        } finally {
+
+            productionStatusSelect.disabled =
                 false;
 
         }

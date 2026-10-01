@@ -5898,3 +5898,15 @@ a {
     }
 
 }
+
+/* =====================================
+   3D Contour Logo
+===================================== */
+
+.site-logo {
+    display: block;
+    width: 200px;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
+}
